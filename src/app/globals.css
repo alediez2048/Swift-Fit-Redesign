@@ -9,13 +9,16 @@
 
 :root {
   /* ===================
-     Brand Colors
+     Brand Colors (Fresh & Vibrant - Surfing Template Style)
      =================== */
-  --canvas: #F7F5F0;      /* Limestone Cream - Primary background */
-  --ink: #1A1A1A;         /* Deep Charcoal - Body text */
-  --authority: #00556B;   /* Swift Teal - Headlines, primary actions */
-  --cta: #FBC544;         /* Swift Yellow - Primary CTAs */
-  --accent: #F49028;      /* Swift Orange - Hover states, icons */
+  --canvas: #FFFFFF;      /* Pure White - Primary background */
+  --ink: #090909;         /* Dark Charcoal - Headlines */
+  --ink-secondary: #757575; /* Medium Gray - Body text */
+  --authority: #090909;   /* Dark Charcoal - Headlines */
+  --cta: #FF4F01;         /* Vibrant Orange - Primary CTAs */
+  --accent: #FF4F01;      /* Vibrant Orange - Accent elements */
+  --surface: #FAFAFA;     /* Light Gray - Section backgrounds */
+  --surface-alt: #FCFCFC; /* Off White - Alternative backgrounds */
 
   /* ===================
      shadcn/ui Semantic Tokens
@@ -30,24 +33,23 @@
   --popover: #FFFFFF;
   --popover-foreground: var(--ink);
 
-  --primary: var(--authority);
-  --primary-foreground: var(--canvas);
+  --primary: var(--cta);
+  --primary-foreground: #FFFFFF;
 
-  --secondary: var(--cta);
+  --secondary: var(--surface);
   --secondary-foreground: var(--ink);
 
-  --muted: #E8E6E1;
-  --muted-foreground: #64645F;
+  --muted: var(--surface);
+  --muted-foreground: var(--ink-secondary);
 
-  --accent: var(--accent);
-  --accent-foreground: var(--ink);
+  --accent-foreground: #FFFFFF;
 
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
 
-  --border: #D4D2CD;
-  --input: #D4D2CD;
-  --ring: var(--authority);
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: var(--cta);
 
   /* ===================
      Typography
@@ -83,23 +85,23 @@
   /* ===================
      Chart Colors (for future dashboards)
      =================== */
-  --chart-1: var(--authority);
-  --chart-2: var(--cta);
-  --chart-3: var(--accent);
-  --chart-4: #4A9B8C;
-  --chart-5: #8B6F47;
+  --chart-1: var(--cta);
+  --chart-2: #3B82F6;
+  --chart-3: #10B981;
+  --chart-4: #8B5CF6;
+  --chart-5: #6B7280;
 
   /* ===================
      Sidebar (if needed)
      =================== */
-  --sidebar: var(--canvas);
+  --sidebar: #FAFAFA;
   --sidebar-foreground: var(--ink);
-  --sidebar-primary: var(--authority);
-  --sidebar-primary-foreground: var(--canvas);
-  --sidebar-accent: var(--cta);
+  --sidebar-primary: var(--cta);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--surface);
   --sidebar-accent-foreground: var(--ink);
   --sidebar-border: var(--border);
-  --sidebar-ring: var(--authority);
+  --sidebar-ring: var(--cta);
 }
 
 /* ===================
@@ -112,6 +114,8 @@
   --color-authority: var(--authority);
   --color-cta: var(--cta);
   --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
 
   /* Semantic Colors */
   --color-background: var(--background);
@@ -180,28 +184,28 @@ body {
    Typography
    =================== */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  color: var(--authority);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h1 { font-size: clamp(3.5rem, 10vw, 8rem); }
+h2 { font-size: clamp(2.5rem, 6vw, 4rem); }
+h3 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
 h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
 /* ===================
    Selection & Focus
    =================== */
 ::selection {
-  background: var(--authority);
+  background: var(--cta);
   color: var(--canvas);
 }
 
 :focus-visible {
-  outline: 2px solid var(--authority);
+  outline: 2px solid var(--cta);
   outline-offset: 2px;
 }
 
@@ -260,4 +264,22 @@ img[data-loading="true"] {
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(calc(-100% - var(--gap))); }
+  to { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse linear infinite;
 }
