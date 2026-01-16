@@ -1,35 +1,55 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
-  { name: "Corporate Wellness", href: "/corporate-wellness" },
-  { name: "Venue Rental", href: "/venue-rental" },
-  { name: "Swift Fit Social", href: "/swift-fit-social" },
   { name: "About", href: "/about" },
+  { name: "Services", href: "/corporate-wellness" },
+  { name: "Venue", href: "/venue-rental" },
+  { name: "Events", href: "/swift-fit-social" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 bg-canvas/80 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Swift Fit Events</span>
-            {/* Placeholder for logo - will be replaced with actual logo */}
-            <div className="h-10 w-32 flex items-center">
-              <span className="font-serif text-xl font-semibold text-authority">
-                Swift Fit
-              </span>
+        <div className="flex-1">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-cta rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-sm">SF</span>
             </div>
+            <span className="text-lg font-semibold text-ink">Swift Fit</span>
           </Link>
+        </div>
+
+        {/* Desktop navigation - Centered */}
+        <div className="hidden lg:flex lg:gap-x-8">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-medium text-ink hover:text-cta transition-colors duration-200"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <Button
+            asChild
+            className="bg-cta text-white hover:bg-cta/90 font-medium rounded-full px-6"
+          >
+            <Link href="/contact">Get Started</Link>
+          </Button>
         </div>
 
         {/* Mobile menu button */}
@@ -55,29 +75,6 @@ export function Navbar() {
             </svg>
           </button>
         </div>
-
-        {/* Desktop navigation */}
-        <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-ink hover:text-authority transition-colors duration-200"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-
-        {/* CTA Button */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button
-            asChild
-            className="bg-cta text-ink hover:bg-cta/90 font-medium"
-          >
-            <Link href="/contact">Get Started</Link>
-          </Button>
-        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -94,7 +91,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-ink/20 backdrop-blur-sm"
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -104,13 +101,14 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed inset-y-0 right-0 w-full max-w-sm bg-canvas px-6 py-6 shadow-xl"
+              className="fixed inset-y-0 right-0 w-full max-w-sm bg-white px-6 py-6 shadow-xl"
             >
               <div className="flex items-center justify-between">
-                <Link href="/" className="-m-1.5 p-1.5">
-                  <span className="font-serif text-xl font-semibold text-authority">
-                    Swift Fit
-                  </span>
+                <Link href="/" className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-cta rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">SF</span>
+                  </div>
+                  <span className="text-lg font-semibold text-ink">Swift Fit</span>
                 </Link>
                 <button
                   type="button"
@@ -135,14 +133,14 @@ export function Navbar() {
               </div>
 
               <div className="mt-8 flow-root">
-                <div className="-my-6 divide-y divide-border">
-                  <div className="space-y-2 py-6">
+                <div className="-my-6 divide-y divide-gray-100">
+                  <div className="space-y-1 py-6">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="-mx-3 block rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-muted transition-colors"
+                        className="-mx-3 block rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-gray-50 transition-colors"
                       >
                         {item.name}
                       </Link>
@@ -151,7 +149,7 @@ export function Navbar() {
                   <div className="py-6">
                     <Button
                       asChild
-                      className="w-full bg-cta text-ink hover:bg-cta/90 font-medium"
+                      className="w-full bg-cta text-white hover:bg-cta/90 font-medium rounded-full"
                     >
                       <Link href="/contact">Get Started</Link>
                     </Button>

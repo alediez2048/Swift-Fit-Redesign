@@ -3,17 +3,14 @@ import Link from "next/link";
 const footerNavigation = {
   services: [
     { name: "Corporate Wellness", href: "/corporate-wellness" },
-    { name: "Corporate Packages", href: "/corporate-packages" },
+    { name: "Team Building", href: "/corporate-wellness#team-building" },
     { name: "Venue Rental", href: "/venue-rental" },
-    { name: "Partner With Us", href: "/partner-with-us" },
-  ],
-  community: [
-    { name: "Swift Fit Social", href: "/swift-fit-social" },
-    { name: "Upcoming Events", href: "/swift-fit-social#events" },
+    { name: "Fitness Classes", href: "/swift-fit-social" },
   ],
   company: [
-    { name: "About Us", href: "/about" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    { name: "Careers", href: "/careers" },
   ],
   social: [
     {
@@ -51,24 +48,98 @@ function LinkedInIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Footer() {
   return (
-    <footer className="bg-authority text-canvas">
+    <footer className="bg-ink text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <span className="font-serif text-2xl font-semibold">Swift Fit</span>
-            <p className="text-sm text-canvas/80 max-w-xs">
-              Austin&apos;s premier corporate wellness partner. Creating
-              meaningful connections through movement and mindfulness.
-            </p>
-            <div className="flex space-x-4">
+        {/* Large Brand Name */}
+        <div className="mb-16">
+          <h2 className="text-[15vw] md:text-[10vw] lg:text-[8vw] font-extrabold leading-none tracking-tighter">
+            SWIFT<span className="text-cta">*</span>FIT
+          </h2>
+        </div>
+
+        {/* Navigation Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {/* Services */}
+          <div>
+            <h3 className="text-sm font-semibold text-white/50 uppercase tracking-wider mb-4">
+              Services
+            </h3>
+            <ul className="space-y-3">
+              {footerNavigation.services.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-white/80 hover:text-cta transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="text-sm font-semibold text-white/50 uppercase tracking-wider mb-4">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              {footerNavigation.company.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-white/80 hover:text-cta transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-sm font-semibold text-white/50 uppercase tracking-wider mb-4">
+              Contact
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="tel:+15126607746"
+                  className="text-sm text-white/80 hover:text-cta transition-colors"
+                >
+                  (512) 660-7746
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@swiftfitevents.com"
+                  className="text-sm text-white/80 hover:text-cta transition-colors"
+                >
+                  info@swiftfitevents.com
+                </a>
+              </li>
+              <li className="text-sm text-white/80">
+                918 Congress Ave
+                <br />
+                Austin, TX 78701
+              </li>
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <h3 className="text-sm font-semibold text-white/50 uppercase tracking-wider mb-4">
+              Follow Us
+            </h3>
+            <div className="flex gap-4">
               {footerNavigation.social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-canvas/80 hover:text-cta transition-colors"
+                  className="text-white/80 hover:text-cta transition-colors"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" />
@@ -76,93 +147,21 @@ export function Footer() {
               ))}
             </div>
           </div>
-
-          {/* Navigation */}
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-cta">Services</h3>
-                <ul role="list" className="mt-4 space-y-3">
-                  {footerNavigation.services.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-canvas/80 hover:text-canvas transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold text-cta">Community</h3>
-                <ul role="list" className="mt-4 space-y-3">
-                  {footerNavigation.community.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-canvas/80 hover:text-canvas transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-cta">Company</h3>
-                <ul role="list" className="mt-4 space-y-3">
-                  {footerNavigation.company.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-canvas/80 hover:text-canvas transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold text-cta">Contact</h3>
-                <ul role="list" className="mt-4 space-y-3">
-                  <li>
-                    <a
-                      href="tel:+15126607746"
-                      className="text-sm text-canvas/80 hover:text-canvas transition-colors"
-                    >
-                      (512) 660-7746
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:info@swiftfitevents.com"
-                      className="text-sm text-canvas/80 hover:text-canvas transition-colors"
-                    >
-                      info@swiftfitevents.com
-                    </a>
-                  </li>
-                  <li className="text-sm text-canvas/80">
-                    918 Congress Ave
-                    <br />
-                    Austin, TX 78701
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 border-t border-canvas/20 pt-8">
-          <p className="text-xs text-canvas/60">
-            &copy; {new Date().getFullYear()} Swift Fit Events. All rights
-            reserved.
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
+          <p className="text-sm text-white/50">
+            &copy; {new Date().getFullYear()} Swift Fit Events. All rights reserved.
           </p>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <Link href="/privacy" className="text-sm text-white/50 hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-sm text-white/50 hover:text-white transition-colors">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
