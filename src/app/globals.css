@@ -1,0 +1,263 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   Swift Fit Events - Design System
+   ============================================ */
+
+:root {
+  /* ===================
+     Brand Colors
+     =================== */
+  --canvas: #F7F5F0;      /* Limestone Cream - Primary background */
+  --ink: #1A1A1A;         /* Deep Charcoal - Body text */
+  --authority: #00556B;   /* Swift Teal - Headlines, primary actions */
+  --cta: #FBC544;         /* Swift Yellow - Primary CTAs */
+  --accent: #F49028;      /* Swift Orange - Hover states, icons */
+
+  /* ===================
+     shadcn/ui Semantic Tokens
+     (mapped to Swift Fit brand)
+     =================== */
+  --background: var(--canvas);
+  --foreground: var(--ink);
+
+  --card: #FFFFFF;
+  --card-foreground: var(--ink);
+
+  --popover: #FFFFFF;
+  --popover-foreground: var(--ink);
+
+  --primary: var(--authority);
+  --primary-foreground: var(--canvas);
+
+  --secondary: var(--cta);
+  --secondary-foreground: var(--ink);
+
+  --muted: #E8E6E1;
+  --muted-foreground: #64645F;
+
+  --accent: var(--accent);
+  --accent-foreground: var(--ink);
+
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #D4D2CD;
+  --input: #D4D2CD;
+  --ring: var(--authority);
+
+  /* ===================
+     Typography
+     =================== */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* ===================
+     Layout
+     =================== */
+  --section-padding: 5rem;
+  --container-max: 1280px;
+  --radius: 0.5rem;
+
+  /* ===================
+     Animation
+     =================== */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --duration-slow: 700ms;
+  --duration-normal: 400ms;
+  --duration-fast: 200ms;
+
+  /* ===================
+     Chart Colors (for future dashboards)
+     =================== */
+  --chart-1: var(--authority);
+  --chart-2: var(--cta);
+  --chart-3: var(--accent);
+  --chart-4: #4A9B8C;
+  --chart-5: #8B6F47;
+
+  /* ===================
+     Sidebar (if needed)
+     =================== */
+  --sidebar: var(--canvas);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--authority);
+  --sidebar-primary-foreground: var(--canvas);
+  --sidebar-accent: var(--cta);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--authority);
+}
+
+/* ===================
+   Tailwind Theme Mapping
+   =================== */
+@theme inline {
+  /* Brand Colors */
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-authority: var(--authority);
+  --color-cta: var(--cta);
+  --color-accent: var(--accent);
+
+  /* Semantic Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Chart Colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Typography */
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* ===================
+   Base Styles
+   =================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================
+   Typography
+   =================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--authority);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+
+/* ===================
+   Selection & Focus
+   =================== */
+::selection {
+  background: var(--authority);
+  color: var(--canvas);
+}
+
+:focus-visible {
+  outline: 2px solid var(--authority);
+  outline-offset: 2px;
+}
+
+/* ===================
+   Smooth Image Loading
+   =================== */
+img {
+  opacity: 1;
+  transition: opacity var(--duration-normal) var(--ease-out-expo);
+}
+
+img[data-loading="true"] {
+  opacity: 0;
+}
+
+/* ===================
+   shadcn/ui Base Layer
+   =================== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===================
+   Custom Utilities
+   =================== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s var(--ease-out-expo) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s var(--ease-out-expo) forwards;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

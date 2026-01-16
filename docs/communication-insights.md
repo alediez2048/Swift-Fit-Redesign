@@ -177,10 +177,17 @@ On the target feeling:
 
 ---
 
-## Open Questions for Stakeholders
+## Decisions Made
 
-1. **HubSpot vs Next.js** - Is this build replacing the HubSpot migration plan, or complementing it?
-2. **Swift Fit Social branding** - Will it have its own domain, or remain a section of swiftfitevents.com?
-3. **Video assets** - Are hero videos and testimonials ready, or do we use placeholders?
-4. **Client logos** - Do we have SVG versions of all enterprise client logos?
-5. **Threshold360 embed** - Is the virtual tour code ready?
+| Question | Decision |
+|----------|----------|
+| **Framework** | Next.js 15 (best UX, performance, SEO) |
+| **Swift Fit Social** | Lives on swiftfitevents.com (same domain, `/swift-fit-social` route) |
+| **Video assets** | Placeholder videos for now |
+| **Logo** | Will be added manually to `/public/assets/` |
+
+## Remaining Open Questions
+
+1. **Client logos** - Do we have SVG versions of enterprise client logos?
+2. **Threshold360 tour embed** - Is the virtual tour code ready?
+3. **HubSpot CRM** - Will forms integrate with HubSpot, or use another system?
