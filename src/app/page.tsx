@@ -15,6 +15,13 @@ import logoIBM from "@/assets/images/partners/ibm.png";
 import logoVisa from "@/assets/images/partners/visa.png";
 import logoTiktok from "@/assets/images/partners/tiktok.png";
 import logoAccenture from "@/assets/images/partners/accenture.png";
+import logoMadHippie from "@/assets/images/partners/mad-hippie.png";
+import logoSnapKitchen from "@/assets/images/partners/snap-kitchen.png";
+import logoSansBar from "@/assets/images/partners/sans-bar.png";
+import logoRambler from "@/assets/images/partners/rambler.png";
+import logoAustinMonthly from "@/assets/images/partners/austin-monthly.png";
+import logoVoss from "@/assets/images/partners/voss.png";
+import logoTacodeli from "@/assets/images/partners/tacodeli.png";
 
 // Marquee items
 const marqueeItems = [
@@ -35,6 +42,13 @@ const clientLogos = [
   { name: "Accenture", src: logoAccenture },
   { name: "CoinDesk", src: logoCoindesk },
   { name: "Fidelity", src: logoFidelity },
+  { name: "Mad Hippie", src: logoMadHippie },
+  { name: "Snap Kitchen", src: logoSnapKitchen },
+  { name: "Sans Bar", src: logoSansBar },
+  { name: "Rambler", src: logoRambler },
+  { name: "Austin Monthly", src: logoAustinMonthly },
+  { name: "Voss", src: logoVoss },
+  { name: "Tacodeli", src: logoTacodeli },
 ];
 
 // Services
@@ -152,23 +166,11 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-center px-4"
             >
-              <h1 className="text-white text-[12vw] md:text-[10vw] lg:text-[8vw] font-extrabold leading-[0.9] tracking-tighter">
-                SWIFT
-                <span className="text-cta">*</span>
-                FIT
+              <h1 className="text-white text-[10vw] md:text-[8vw] lg:text-[6vw] font-extrabold leading-[0.95] tracking-tighter">
+                SWIFT FIT
+                <br />
+                <span className="text-cta">EVENTS</span>
               </h1>
-              <div className="flex justify-center mt-2">
-                <svg
-                  className="w-32 md:w-48 text-cta"
-                  viewBox="0 0 120 20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                >
-                  <path d="M5 15 Q 30 5, 60 12 T 115 8" />
-                </svg>
-              </div>
             </motion.div>
           </div>
 
@@ -183,7 +185,7 @@ export default function Home() {
               {[...Array(5)].map((_, i) => (
                 <StarIcon key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
               ))}
-              <span className="ml-2 font-semibold">4.9/5</span>
+              <span className="ml-2 font-semibold">5/5</span>
             </div>
             <p className="text-sm opacity-90">Austin&apos;s Top-Rated Corporate Wellness Partner</p>
           </motion.div>
@@ -327,37 +329,31 @@ export default function Home() {
       </section>
 
       {/* Trust Bar - Partner Logos */}
-      <section className="py-16 bg-white border-y border-gray-100">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center text-sm text-muted-foreground mb-10"
-          >
-            Trusted by leading companies
-          </motion.p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
-            {clientLogos.map((logo, index) => (
-              <motion.div
-                key={logo.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={120}
-                  height={60}
-                  className="h-10 md:h-12 w-auto object-contain"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      <section className="py-12 bg-white border-y border-gray-100 overflow-hidden">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center text-sm text-muted-foreground mb-8"
+        >
+          Trusted by leading companies
+        </motion.p>
+        <Marquee speed="slow" pauseOnHover gap="4rem" className="py-4">
+          {clientLogos.map((logo) => (
+            <div
+              key={logo.name}
+              className="shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.name}
+                width={180}
+                height={90}
+                className="h-12 md:h-16 w-auto object-contain"
+              />
+            </div>
+          ))}
+        </Marquee>
       </section>
 
       {/* FAQ Section */}

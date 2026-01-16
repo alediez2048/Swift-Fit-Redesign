@@ -8,6 +8,7 @@ interface MarqueeProps {
   reverse?: boolean;
   pauseOnHover?: boolean;
   speed?: "slow" | "normal" | "fast";
+  gap?: string;
 }
 
 export function Marquee({
@@ -16,41 +17,47 @@ export function Marquee({
   reverse = false,
   pauseOnHover = false,
   speed = "normal",
+  gap = "3rem",
 }: MarqueeProps) {
-  const speedMap = {
-    slow: "40s",
-    normal: "25s",
-    fast: "15s",
+  const duration = {
+    slow: 40,
+    normal: 25,
+    fast: 15,
+  }[speed];
+
+  const animationStyle: React.CSSProperties = {
+    animationName: reverse ? "marquee-reverse" : "marquee",
+    animationDuration: `${duration}s`,
+    animationTimingFunction: "linear",
+    animationIterationCount: "infinite",
+    willChange: "transform",
+    gap: gap,
+    paddingRight: gap,
   };
 
   return (
     <div
       className={cn(
-        "flex overflow-hidden [--gap:2rem]",
-        pauseOnHover && "hover:[animation-play-state:paused]",
+        "group flex overflow-hidden",
         className
       )}
     >
       <div
         className={cn(
-          "flex shrink-0 items-center gap-[--gap]",
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
+          "flex shrink-0 items-center",
+          pauseOnHover && "group-hover:[animation-play-state:paused]"
         )}
-        style={{
-          animationDuration: speedMap[speed],
-        }}
+        style={animationStyle}
       >
         {children}
       </div>
       <div
         className={cn(
-          "flex shrink-0 items-center gap-[--gap]",
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
+          "flex shrink-0 items-center",
+          pauseOnHover && "group-hover:[animation-play-state:paused]"
         )}
-        aria-hidden
-        style={{
-          animationDuration: speedMap[speed],
-        }}
+        style={animationStyle}
+        aria-hidden="true"
       >
         {children}
       </div>
