@@ -9,16 +9,19 @@
 
 :root {
   /* ===================
-     Brand Colors (Fresh & Vibrant - Surfing Template Style)
+     Swift Fit Brand Colors (From Official Logo)
      =================== */
   --canvas: #FFFFFF;      /* Pure White - Primary background */
-  --ink: #090909;         /* Dark Charcoal - Headlines */
-  --ink-secondary: #757575; /* Medium Gray - Body text */
-  --authority: #090909;   /* Dark Charcoal - Headlines */
-  --cta: #FF4F01;         /* Vibrant Orange - Primary CTAs */
-  --accent: #FF4F01;      /* Vibrant Orange - Accent elements */
-  --surface: #FAFAFA;     /* Light Gray - Section backgrounds */
-  --surface-alt: #FCFCFC; /* Off White - Alternative backgrounds */
+  --ink: #1A1A1A;         /* Dark Charcoal - Body text */
+  --ink-secondary: #6B7280; /* Medium Gray - Secondary text */
+  --teal: #1D4E5F;        /* Swift Teal - Logo background, headlines */
+  --coral: #E5673D;       /* Swift Coral - Fox icon, CTAs, accents */
+  --cream: #F5E6D3;       /* Swift Cream - Text on dark backgrounds */
+  --authority: var(--teal);   /* Primary brand color */
+  --cta: var(--coral);        /* Call-to-action color */
+  --accent: var(--coral);     /* Accent elements */
+  --surface: #F7F5F2;     /* Warm Gray - Section backgrounds */
+  --surface-alt: #FAFAFA; /* Light Gray - Alternative backgrounds */
 
   /* ===================
      shadcn/ui Semantic Tokens
@@ -85,11 +88,11 @@
   /* ===================
      Chart Colors (for future dashboards)
      =================== */
-  --chart-1: var(--cta);
-  --chart-2: #3B82F6;
+  --chart-1: var(--teal);
+  --chart-2: var(--coral);
   --chart-3: #10B981;
-  --chart-4: #8B5CF6;
-  --chart-5: #6B7280;
+  --chart-4: #3B82F6;
+  --chart-5: var(--ink-secondary);
 
   /* ===================
      Sidebar (if needed)
@@ -111,6 +114,10 @@
   /* Brand Colors */
   --color-canvas: var(--canvas);
   --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-teal: var(--teal);
+  --color-coral: var(--coral);
+  --color-cream: var(--cream);
   --color-authority: var(--authority);
   --color-cta: var(--cta);
   --color-accent: var(--accent);
@@ -185,7 +192,7 @@ body {
    =================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
-  color: var(--ink);
+  color: var(--teal);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.03em;
