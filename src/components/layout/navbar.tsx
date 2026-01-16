@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/images/swift-fit-events-primary-badge.webp";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -21,11 +23,15 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
         <div className="flex-1">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-cta rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SF</span>
-            </div>
-            <span className="text-lg font-semibold text-ink">Swift Fit</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src={logo}
+              alt="Swift Fit Events"
+              width={48}
+              height={48}
+              className="w-12 h-12"
+              priority
+            />
           </Link>
         </div>
 
@@ -104,11 +110,14 @@ export function Navbar() {
               className="fixed inset-y-0 right-0 w-full max-w-sm bg-white px-6 py-6 shadow-xl"
             >
               <div className="flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-cta rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">SF</span>
-                  </div>
-                  <span className="text-lg font-semibold text-ink">Swift Fit</span>
+                <Link href="/" className="flex items-center">
+                  <Image
+                    src={logo}
+                    alt="Swift Fit Events"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12"
+                  />
                 </Link>
                 <button
                   type="button"

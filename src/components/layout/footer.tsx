@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/images/swift-fit-events-primary-badge.webp";
 
 const footerNavigation = {
   services: [
@@ -50,9 +52,16 @@ export function Footer() {
   return (
     <footer className="bg-ink text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        {/* Large Brand Name */}
-        <div className="mb-16">
-          <h2 className="text-[15vw] md:text-[10vw] lg:text-[8vw] font-extrabold leading-none tracking-tighter">
+        {/* Logo and Brand */}
+        <div className="mb-16 flex items-center gap-6">
+          <Image
+            src={logo}
+            alt="Swift Fit Events"
+            width={120}
+            height={120}
+            className="w-24 h-24 md:w-32 md:h-32"
+          />
+          <h2 className="text-[12vw] md:text-[8vw] lg:text-[6vw] font-extrabold leading-none tracking-tighter text-white">
             SWIFT<span className="text-cta">*</span>FIT
           </h2>
         </div>
