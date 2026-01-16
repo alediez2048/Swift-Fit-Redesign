@@ -6,6 +6,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
 
+// Partner logos
+import logoBumble from "@/assets/images/partners/bumble.png";
+import logoCoindesk from "@/assets/images/partners/coindesk.png";
+import logoFidelity from "@/assets/images/partners/fidelity.png";
+import logoGoldmanSachs from "@/assets/images/partners/goldman-sachs.png";
+import logoIBM from "@/assets/images/partners/ibm.png";
+import logoVisa from "@/assets/images/partners/visa.png";
+import logoTiktok from "@/assets/images/partners/tiktok.png";
+import logoAccenture from "@/assets/images/partners/accenture.png";
+
 // Marquee items
 const marqueeItems = [
   { text: "CORPORATE WELLNESS", icon: "star" },
@@ -17,14 +27,14 @@ const marqueeItems = [
 
 // Client logos for trust bar
 const clientLogos = [
-  "Bumble",
-  "IBM",
-  "Goldman Sachs",
-  "Visa",
-  "TikTok",
-  "Accenture",
-  "Google",
-  "Meta",
+  { name: "Bumble", src: logoBumble },
+  { name: "IBM", src: logoIBM },
+  { name: "Goldman Sachs", src: logoGoldmanSachs },
+  { name: "Visa", src: logoVisa },
+  { name: "TikTok", src: logoTiktok },
+  { name: "Accenture", src: logoAccenture },
+  { name: "CoinDesk", src: logoCoindesk },
+  { name: "Fidelity", src: logoFidelity },
 ];
 
 // Services
@@ -316,20 +326,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Bar */}
+      {/* Trust Bar - Partner Logos */}
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="text-center text-sm text-muted-foreground mb-8">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center text-sm text-muted-foreground mb-10"
+          >
             Trusted by leading companies
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {clientLogos.map((logo) => (
-              <div
-                key={logo}
-                className="text-xl font-bold text-gray-300 hover:text-ink transition-colors duration-300"
+          </motion.p>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
+            {clientLogos.map((logo, index) => (
+              <motion.div
+                key={logo.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               >
-                {logo}
-              </div>
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={120}
+                  height={60}
+                  className="h-10 md:h-12 w-auto object-contain"
+                />
+              </motion.div>
             ))}
           </div>
         </div>
