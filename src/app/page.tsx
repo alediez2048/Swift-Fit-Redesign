@@ -622,9 +622,8 @@ export default function Home() {
                     key={i}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 + i * 0.08, type: "spring" }}
                   >
-                    <StarIcon className="w-6 h-6 text-white fill-white" />
+                    <StarIcon className="w-[30px] h-[30px] text-white fill-white" />
                   </motion.div>
                 ))}
                 <span className="ml-2 font-medium text-white text-2xl">5/5</span>
