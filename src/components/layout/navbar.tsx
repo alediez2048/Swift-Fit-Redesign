@@ -5,13 +5,14 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/images/swift-fit-events-primary-badge.webp";
+import logo from "@/assets/images/Gemini_Generated_Image_h2x1h5h2x1h5h2x1.png";
 
 const navigation = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/corporate-wellness" },
   { name: "Venue", href: "/venue-rental" },
-  { name: "Events", href: "/swift-fit-social" },
+  { name: "Events", href: "/events" },
+  { name: "Swift Fit Social", href: "/swift-fit-social" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -20,28 +21,28 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
         {/* Logo */}
         <div className="flex-1">
           <Link href="/" className="flex items-center">
             <Image
               src={logo}
               alt="Swift Fit Events"
-              width={48}
-              height={48}
-              className="w-12 h-12"
+              width={50}
+              height={50}
+              className="w-[50px] h-[50px]"
               priority
             />
           </Link>
         </div>
 
         {/* Desktop navigation - Centered */}
-        <div className="hidden lg:flex lg:gap-x-8">
+        <div className="hidden sm:flex sm:gap-x-10">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-ink hover:text-cta transition-colors duration-200"
+              className="text-base font-medium text-ink hover:text-cta transition-colors duration-200"
             >
               {item.name}
             </Link>
@@ -49,17 +50,18 @@ export function Navbar() {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden sm:flex sm:flex-1 sm:justify-end">
           <Button
             asChild
-            className="bg-cta text-white hover:bg-cta/90 font-medium rounded-full px-6"
+            size="lg"
+            className="bg-cta text-white hover:bg-cta/90 font-semibold rounded-full px-8 py-3 text-base"
           >
-            <Link href="/contact">Get Started</Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex lg:hidden">
+        <div className="flex sm:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-ink"
@@ -114,9 +116,9 @@ export function Navbar() {
                   <Image
                     src={logo}
                     alt="Swift Fit Events"
-                    width={48}
-                    height={48}
-                    className="w-12 h-12"
+                    width={72}
+                    height={72}
+                    className="w-[72px] h-[72px]"
                   />
                 </Link>
                 <button
