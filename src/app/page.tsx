@@ -901,31 +901,36 @@ export default function Home() {
 
 
       {/* Trust Bar - Partner Logos */}
-      <section className="py-12 bg-white border-y border-gray-100 overflow-hidden relative">
+      <section className="py-20 bg-teal/5 overflow-hidden relative">
         {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-teal/5 to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-teal/5 to-transparent z-10" />
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center text-sm text-muted-foreground mb-8"
-        >
-          Trusted by leading companies
-        </motion.p>
-        <Marquee speed="slow" pauseOnHover gap="4rem" className="py-4">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal/60">
+              Trusted by leading companies
+            </span>
+          </motion.div>
+        </div>
+
+        <Marquee speed="slow" pauseOnHover gap="5rem" className="py-2">
           {clientLogos.map((logo) => (
             <div
               key={logo.name}
-              className="shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 px-4"
             >
               <Image
                 src={logo.src}
                 alt={logo.name}
                 width={180}
                 height={90}
-                className="h-12 md:h-16 w-auto object-contain"
+                className="h-12 md:h-14 w-auto object-contain"
               />
             </div>
           ))}
