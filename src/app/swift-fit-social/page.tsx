@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import asteriskImage from "@/assets/images/asterisk.png";
+import teamImage from "@/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp";
 
 // Animation variants
 const fadeUpVariant = {
@@ -241,7 +242,7 @@ export default function SwiftFitSocialPage() {
                                 className="relative aspect-[4/3] rounded-2xl overflow-hidden"
                             >
                                 <Image
-                                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp`}
+                                    src={teamImage}
                                     alt="Swift Fit Social community event"
                                     fill
                                     className="object-cover"
