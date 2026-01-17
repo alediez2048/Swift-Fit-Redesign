@@ -157,7 +157,7 @@ export default function SwiftFitSocialPage() {
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 0.6 + i * 0.08, type: "spring" }}
                                         >
-                                            <StarIcon className="w-6 h-6 text-white fill-white" />
+                                            <StarIcon className="w-[30px] h-[30px] text-white fill-white" />
                                         </motion.div>
                                     ))}
                                     <span className="ml-2 font-medium text-white text-2xl">5/5</span>
@@ -168,15 +168,7 @@ export default function SwiftFitSocialPage() {
                             </motion.div>
 
                             {/* Tagline */}
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.6 }}
-                                className="text-[21px] md:text-[24px] font-semibold text-white mx-auto mb-6 leading-tight whitespace-nowrap"
-                            >
-                                Bringing people together through movement,<br />
-                                music, and meaningful connection.
-                            </motion.p>
+
 
                             {/* Animated Arrow */}
                             <motion.div
