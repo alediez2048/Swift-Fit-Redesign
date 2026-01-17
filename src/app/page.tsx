@@ -514,7 +514,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section - Matching reference layout */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden border-x-[20px] border-white box-border">
         {/* Video Background */}
         <div className="absolute inset-0">
           <video
@@ -635,15 +635,7 @@ export default function Home() {
             </motion.div>
 
             {/* Tagline - exactly two lines */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-[21px] md:text-[24px] font-semibold text-white mx-auto mb-6 leading-tight whitespace-nowrap"
-            >
-              Planning a team retreat or boosting workplace wellness?<br />
-              We&apos;ve got the perfect experience for you.
-            </motion.p>
+
 
             {/* Animated Arrow - at ~92% from top */}
             <motion.div

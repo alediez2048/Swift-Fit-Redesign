@@ -37,7 +37,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop navigation - Centered */}
-        <div className="hidden sm:flex sm:gap-x-10">
+        <div className="hidden lg:flex lg:gap-x-10">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -50,7 +50,7 @@ export function Navbar() {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden sm:flex sm:flex-1 sm:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button
             asChild
             size="lg"
@@ -61,7 +61,7 @@ export function Navbar() {
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex sm:hidden">
+        <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-ink"
