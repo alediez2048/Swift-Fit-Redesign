@@ -515,7 +515,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section - Matching reference layout */}
-      <section className="relative min-h-screen overflow-hidden border-x-[20px] border-white box-border">
+      <section className="relative h-screen overflow-hidden border-x-[20px] border-b-[20px] border-white box-border">
         {/* Video Background */}
         <div className="absolute inset-0">
           <video

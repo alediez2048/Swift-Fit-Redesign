@@ -74,7 +74,7 @@ export default function SwiftFitSocialPage() {
             <main className="min-h-screen bg-white -mt-16">
 
                 {/* Hero Section */}
-                <section className="relative h-screen overflow-hidden border-x-[20px] border-white box-border">
+                <section className="relative h-screen overflow-hidden border-x-[20px] border-b-[20px] border-white box-border">
                     {/* Video Background */}
                     <div className="absolute inset-0">
                         <video
