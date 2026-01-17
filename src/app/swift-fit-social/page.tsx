@@ -82,7 +82,7 @@ export default function SwiftFitSocialPage() {
                             playsInline
                             className="absolute inset-0 w-full h-full object-cover"
                         >
-                            <source src="/assets/video/hero-video.mp4" type="video/mp4" />
+                            <source src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/video/hero-video.mp4`} type="video/mp4" />
                         </video>
                         {/* Gradient overlay - same as homepage */}
                         <div className="absolute inset-0 bg-gradient-to-b from-teal/60 via-teal/40 to-teal/60" />
