@@ -160,6 +160,9 @@ export function Footer() {
           <p className="text-sm text-ink/50">
             © {new Date().getFullYear()} Swift Fit Events. All rights reserved.
           </p>
+          <p className="text-[10px] opacity-30 font-mono">
+            Env: {process.env.NODE_ENV} | Base: {process.env.NEXT_PUBLIC_BASE_PATH || '/'}
+          </p>
         </div>
       </div>
     </footer>
