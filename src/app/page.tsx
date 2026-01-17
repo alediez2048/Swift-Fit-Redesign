@@ -25,6 +25,29 @@ import logoVoss from "@/assets/images/partners/voss.png";
 import logoTacodeli from "@/assets/images/partners/tacodeli.png";
 import asteriskImage from "@/assets/images/asterisk.png";
 import teamImage from "@/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp";
+import {
+  Star,
+  Users,
+  Buildings,
+  Heart,
+  MapPin,
+  Phone,
+  ClipboardText,
+  Sparkle,
+  FlowerLotus,
+  UsersThree,
+  HouseLine,
+  Pizza,
+  MusicNote,
+  Fire,
+  CaretDown,
+  Trophy,
+  ThumbsUp,
+  Target,
+  Play,
+  Quotes,
+  IconWeight,
+} from "@phosphor-icons/react";
 
 // Animation variants
 const fadeUpVariant = {
@@ -51,15 +74,14 @@ const scaleInVariant = {
 // Marquee items - Austin vibes
 const marqueeItems = [
   { text: "CORPORATE WELLNESS", icon: "star" },
-  { text: "BREAKFAST TACOS", icon: "taco" },
   { text: "TEAM BUILDING", icon: "users" },
   { text: "LIVE MUSIC", icon: "music" },
   { text: "VENUE RENTAL", icon: "building" },
-  { text: "BBQ CATERING", icon: "bbq" },
   { text: "FITNESS EVENTS", icon: "heart" },
   { text: "AUSTIN TX", icon: "location" },
   { text: "KEEP IT WEIRD", icon: "star" },
   { text: "DOWNTOWN VIBES", icon: "building" },
+  { text: "YOGA", icon: "wellness" },
 ];
 
 // Client logos for trust bar
@@ -205,181 +227,21 @@ const faqs = [
   },
 ];
 
-// Icons
-function StarIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
-    </svg>
-  );
-}
-
-function UsersIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-function BuildingIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-      <path d="M10 6h4" />
-      <path d="M10 10h4" />
-      <path d="M10 14h4" />
-      <path d="M10 18h4" />
-    </svg>
-  );
-}
-
-function HeartIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-    </svg>
-  );
-}
-
-function LocationIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-    </svg>
-  );
-}
-
-function PhoneIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
-  );
-}
-
-function ClipboardIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-      <path d="M9 12h6" />
-      <path d="M9 16h6" />
-    </svg>
-  );
-}
-
-function SparklesIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 3l1.09 3.26L16.35 7l-3.26 1.09L12 11.35l-1.09-3.26L7.65 7l3.26-1.09L12 3z" />
-      <path d="M19 13l.8 2.4L22.2 16l-2.4.8L19 19.2l-.8-2.4L15.8 16l2.4-.8L19 13z" />
-      <path d="M6 17l.5 1.5L8 19l-1.5.5L6 21l-.5-1.5L4 19l1.5-.5L6 17z" />
-    </svg>
-  );
-}
-
-function WellnessIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 2a5 5 0 0 1 5 5v4a5 5 0 1 1-10 0V7a5 5 0 0 1 5-5z" />
-      <path d="M12 22v-6" />
-      <path d="M8 22h8" />
-      <circle cx="12" cy="9" r="2" />
-    </svg>
-  );
-}
-
-function TeamIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="5" r="3" />
-      <circle cx="6" cy="17" r="3" />
-      <circle cx="18" cy="17" r="3" />
-      <path d="M12 8v4" />
-      <path d="M6 14v-2a6 6 0 0 1 12 0v2" />
-    </svg>
-  );
-}
-
-function VenueIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M3 21h18" />
-      <path d="M5 21V7l8-4 8 4v14" />
-      <path d="M9 21v-4h6v4" />
-      <path d="M10 9h4" />
-      <path d="M10 13h4" />
-    </svg>
-  );
-}
-
-function PlayIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M8 5v14l11-7z" />
-    </svg>
-  );
-}
-
-function QuoteIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-    </svg>
-  );
-}
-
-function TacoIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.56 10.8c.36-.6.56-1.2.56-2.08 0-2.2-1.8-4-4-4h-8.13c-2.2 0-4 1.8-4 4 0 .88.2 1.48.56 2.08-1.8.8-3 2.56-3 4.48C1.56 17.44 3.28 19 5.44 19h13.12c2.16 0 3.88-1.56 3.88-3.72 0-1.92-1.2-3.68-3.08-4.48zM7.44 7c.88 0 1.6.72 1.6 1.6s-.72 1.6-1.6 1.6-1.6-.72-1.6-1.6.72-1.6 1.6-1.6zm4.56 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm4.56-5.2c-.88 0-1.6-.72-1.6-1.6s.72-1.6 1.6-1.6 1.6.72 1.6 1.6-.72 1.6-1.6 1.6z" />
-    </svg>
-  );
-}
-
-function MusicIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-    </svg>
-  );
-}
-
-function BBQIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M17 10c.7-2.5-.5-5-3-6.5" />
-      <path d="M12 10c.7-2.5-.5-5-3-6.5" />
-      <path d="M7 10c.7-2.5-.5-5-3-6.5" />
-      <ellipse cx="12" cy="14" rx="8" ry="4" />
-      <path d="M5.5 16.5v2" />
-      <path d="M18.5 16.5v2" />
-      <path d="M12 18v3" />
-    </svg>
-  );
-}
-
-const iconMap: Record<string, React.FC<{ className?: string }>> = {
-  star: StarIcon,
-  users: UsersIcon,
-  building: BuildingIcon,
-  heart: HeartIcon,
-  location: LocationIcon,
-  phone: PhoneIcon,
-  clipboard: ClipboardIcon,
-  sparkles: SparklesIcon,
-  wellness: WellnessIcon,
-  team: TeamIcon,
-  venue: VenueIcon,
-  taco: TacoIcon,
-  music: MusicIcon,
-  bbq: BBQIcon,
+const iconMap: Record<string, React.FC<{ className?: string; weight?: IconWeight }>> = {
+  star: Star,
+  users: Users,
+  building: Buildings,
+  heart: Heart,
+  location: MapPin,
+  phone: Phone,
+  clipboard: ClipboardText,
+  sparkles: Sparkle,
+  wellness: FlowerLotus,
+  team: UsersThree,
+  venue: HouseLine,
+  taco: Pizza,
+  music: MusicNote,
+  bbq: Fire,
 };
 
 // FAQ Accordion Component
@@ -425,15 +287,7 @@ function FAQSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
                   className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? "bg-coral rotate-45" : "bg-coral"
                     }`}
                 >
-                  <svg
-                    className="w-5 h-5 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                  </svg>
+                  <CaretDown className="w-5 h-5 text-white" weight="bold" />
                 </div>
               </button>
               <motion.div
@@ -515,7 +369,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section - Matching reference layout */}
-      <section className="relative h-screen overflow-hidden border-x-[20px] border-b-[20px] border-white box-border">
+      <section className="relative h-screen overflow-hidden border-x-[20px] border-white box-border">
         {/* Video Background */}
         <div className="absolute inset-0">
           <video
@@ -624,7 +478,7 @@ export default function Home() {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                   >
-                    <StarIcon className="w-[30px] h-[30px] text-white fill-white" />
+                    <Star className="w-[30px] h-[30px] text-white" weight="fill" />
                   </motion.div>
                 ))}
                 <span className="ml-2 font-medium text-white text-2xl">5/5</span>
@@ -643,27 +497,29 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <motion.svg
-                className="w-[46px] h-[45px] mx-auto text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-                animate={{
-                  y: [0, 6, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </motion.svg>
+              <CaretDown className="w-[46px] h-[45px] mx-auto text-white" weight="bold" />
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Orange Banner - Austin Vibes */}
+      <div className="relative bg-coral py-8 overflow-hidden z-20">
+        <div className="absolute left-0 top-0 bottom-0 top-0 w-16 bg-gradient-to-r from-coral to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-coral to-transparent z-10" />
+
+        <Marquee speed="normal" className="text-white">
+          {marqueeItems.map((item, index) => {
+            const Icon = iconMap[item.icon] || Star;
+            return (
+              <div key={index} className="flex items-center gap-5 px-9">
+                <Icon className="w-8 h-8" weight="fill" />
+                <span className="font-bold text-lg tracking-wide">{item.text}</span>
+              </div>
+            );
+          })}
+        </Marquee>
+      </div>
 
 
       {/* Welcome Section */}
@@ -725,10 +581,7 @@ export default function Home() {
               {/* About Us */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <svg className="w-8 h-8 text-[#FF5C00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                  </svg>
+                  <UsersThree className="w-8 h-8 text-[#FF5C00]" weight="regular" />
                   <h3 className="text-2xl font-bold text-teal">About Us</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
@@ -739,10 +592,7 @@ export default function Home() {
               {/* Our Mission */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <svg className="w-8 h-8 text-[#FF5C00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" />
-                  </svg>
+                  <Target className="w-8 h-8 text-[#FF5C00]" weight="regular" />
                   <h3 className="text-2xl font-bold text-teal">Our Mission</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
@@ -769,28 +619,13 @@ export default function Home() {
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-coral/10 mb-4">
                   {stat.icon === "trophy" && (
-                    <svg className="w-6 h-6 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                      <path d="M4 22h16" />
-                      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-                      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
-                      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-                    </svg>
+                    <Trophy className="w-6 h-6 text-coral" weight="regular" />
                   )}
                   {stat.icon === "thumbsup" && (
-                    <svg className="w-6 h-6 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M7 10v12" />
-                      <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" />
-                    </svg>
+                    <ThumbsUp className="w-6 h-6 text-coral" weight="regular" />
                   )}
                   {stat.icon === "users" && (
-                    <svg className="w-6 h-6 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
+                    <Users className="w-6 h-6 text-coral" weight="regular" />
                   )}
                 </div>
                 <div className="text-4xl md:text-5xl font-extrabold text-teal mb-2">{stat.value}</div>
@@ -888,7 +723,7 @@ export default function Home() {
                   )}
 
                   <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-coral/10 mb-6 relative">
-                    <Icon className="w-10 h-10 text-coral" />
+                    <Icon className="w-10 h-10 text-coral" weight="duotone" />
                     <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-coral text-white text-sm font-bold flex items-center justify-center">
                       {step.step}
                     </span>
@@ -931,9 +766,9 @@ export default function Home() {
               <Image
                 src={logo.src}
                 alt={logo.name}
-                width={180}
-                height={90}
-                className="h-12 md:h-14 w-auto object-contain"
+                width={360}
+                height={180}
+                className="h-24 md:h-28 w-auto object-contain"
               />
             </div>
           ))}
@@ -971,7 +806,7 @@ export default function Home() {
                 className={`absolute inset-0 flex flex-col items-center justify-center text-center ${activeTestimonial === index ? "pointer-events-auto" : "pointer-events-none"
                   }`}
               >
-                <QuoteIcon className="w-12 h-12 text-coral/30 mb-6" />
+                <Quotes className="w-12 h-12 text-coral/30 mb-6" weight="fill" />
                 <blockquote className="text-2xl md:text-3xl font-medium text-teal italic mb-8 max-w-2xl">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
@@ -1032,7 +867,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="w-24 h-24 rounded-full bg-coral flex items-center justify-center shadow-lg"
               >
-                <PlayIcon className="w-10 h-10 text-white ml-1" />
+                <Play className="w-10 h-10 text-white ml-1" weight="fill" />
               </motion.div>
             </div>
 

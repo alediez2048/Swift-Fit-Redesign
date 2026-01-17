@@ -6,6 +6,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/images/Gemini_Generated_Image_h2x1h5h2x1h5h2x1.png";
+import { List, X } from "@phosphor-icons/react";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -28,9 +29,9 @@ export function Navbar() {
             <Image
               src={logo}
               alt="Swift Fit Events"
-              width={50}
-              height={50}
-              className="w-[50px] h-[50px]"
+              width={75}
+              height={75}
+              className="w-[75px] h-[75px]"
               priority
             />
           </Link>
@@ -42,7 +43,7 @@ export function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-base font-medium text-ink hover:text-cta transition-colors duration-200"
+              className="text-xl font-medium text-ink hover:text-cta transition-colors duration-200"
             >
               {item.name}
             </Link>
@@ -68,19 +69,7 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
+            <List size={32} weight="bold" />
           </button>
         </div>
       </nav>
@@ -116,9 +105,9 @@ export function Navbar() {
                   <Image
                     src={logo}
                     alt="Swift Fit Events"
-                    width={72}
-                    height={72}
-                    className="w-[72px] h-[72px]"
+                    width={108}
+                    height={108}
+                    className="w-[108px] h-[108px]"
                   />
                 </Link>
                 <button
@@ -127,19 +116,7 @@ export function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <X size={32} weight="bold" />
                 </button>
               </div>
 
@@ -151,7 +128,7 @@ export function Navbar() {
                         key={item.name}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="-mx-3 block rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-gray-50 transition-colors"
+                        className="-mx-3 block rounded-lg px-3 py-3 text-xl font-medium text-ink hover:bg-gray-50 transition-colors"
                       >
                         {item.name}
                       </Link>
