@@ -24,6 +24,7 @@ import logoAustinMonthly from "@/assets/images/partners/austin-monthly.png";
 import logoVoss from "@/assets/images/partners/voss.png";
 import logoTacodeli from "@/assets/images/partners/tacodeli.png";
 import asteriskImage from "@/assets/images/asterisk.png";
+import teamImage from "@/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp";
 
 // Animation variants
 const fadeUpVariant = {
@@ -524,7 +525,7 @@ export default function Home() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/video/hero-video.mp4`} type="video/mp4" />
+            <source src={`${process.env.NODE_ENV === 'production' ? '/Swift-Fit-Redesign' : ''}/assets/video/hero-video.mp4`} type="video/mp4" />
           </video>
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30" />
@@ -707,7 +708,7 @@ export default function Home() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden"
             >
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp`}
+                src={teamImage}
                 alt="Swift Fit Events team"
                 fill
                 className="object-cover"
