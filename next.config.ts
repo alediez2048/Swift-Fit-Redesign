@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === "production" || process.env.CI === "true";
 const repoName = "Swift-Fit-Redesign";
 
 const nextConfig: NextConfig = {
   output: "export",
   basePath: isProd ? `/${repoName}` : "",
+  assetPrefix: isProd ? `/${repoName}` : "",
   images: {
     unoptimized: true,
   },

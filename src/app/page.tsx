@@ -526,7 +526,7 @@ export default function Home() {
             <source src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/video/hero-video.mp4`} type="video/mp4" />
           </video>
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-teal/60 via-teal/40 to-teal/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30" />
         </div>
 
         {/* Animated Background Shapes */}
@@ -569,10 +569,10 @@ export default function Home() {
                 variants={fadeUpVariant}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="font-extrabold leading-[0.9] tracking-tight"
-                style={{ color: '#FFFFFF', fontSize: '36vw' }}
+                style={{ color: '#FFFFFF', fontSize: '15vw' }}
               >
                 SWIFT<span style={{ color: '#FF5C00' }}>*</span>FIT
-                <span className="block text-[0.55em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>EVENTS</span>
+                <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>EVENTS</span>
               </motion.h1>
 
               {/* Decorative Squiggle - overlapping title bottom */}
@@ -598,7 +598,7 @@ export default function Home() {
           <div className="flex-1" />
 
           {/* BOTTOM SECTION - Rating at ~66%, Tagline at ~75%, Arrow at ~92% */}
-          <div className="pb-[8vh] text-center">
+          <div className="pb-[14vh] text-center">
             {/* Rating - at ~66% from top */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -676,13 +676,14 @@ export default function Home() {
           >
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-teal leading-tight">
               <span className="block font-light italic">Welcome to</span>
-              <span className="relative inline-block">
-                Swift Fit Events<sup className="text-coral text-3xl">®</sup>
+              Swift Fit <span className="relative inline-block">
+                Events<sup className="text-coral text-3xl">®</sup>
                 {/* Decorative squiggle */}
                 <svg
-                  className="absolute -bottom-2 left-0 w-48 h-8 text-[#FF5C00]"
+                  className="absolute -bottom-2 left-0 w-full h-8 text-[#FF5C00]"
                   viewBox="0 0 200 30"
                   fill="none"
+                  preserveAspectRatio="none"
                 >
                   <path
                     d="M0 15 Q25 5, 50 15 T100 15 T150 15 T200 15"
@@ -705,7 +706,7 @@ export default function Home() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden"
             >
               <Image
-                src="/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp`}
                 alt="Swift Fit Events team"
                 fill
                 className="object-cover"

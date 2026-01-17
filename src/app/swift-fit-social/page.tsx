@@ -85,7 +85,7 @@ export default function SwiftFitSocialPage() {
                             <source src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/video/hero-video.mp4`} type="video/mp4" />
                         </video>
                         {/* Gradient overlay - same as homepage */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-teal/60 via-teal/40 to-teal/60" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30" />
                     </div>
 
                     {/* Content Container */}
@@ -102,10 +102,10 @@ export default function SwiftFitSocialPage() {
                                     variants={fadeUpVariant}
                                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                     className="font-extrabold leading-[0.9] tracking-tight"
-                                    style={{ color: '#FFFFFF', fontSize: '36vw' }}
+                                    style={{ color: '#FFFFFF', fontSize: '15vw' }}
                                 >
                                     SWIFT<span style={{ color: '#FF5C00' }}>*</span>FIT
-                                    <span className="block text-[0.55em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>SOCIAL</span>
+                                    <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>SOCIAL</span>
                                 </motion.h1>
 
                                 {/* Decorative Squiggle - same as homepage */}
@@ -131,7 +131,7 @@ export default function SwiftFitSocialPage() {
                         <div className="flex-1" />
 
                         {/* BOTTOM SECTION - Rating, Tagline, Arrow */}
-                        <div className="pb-[8vh] text-center">
+                        <div className="pb-[14vh] text-center">
                             {/* Rating */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -209,13 +209,14 @@ export default function SwiftFitSocialPage() {
                         >
                             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-coral leading-tight">
                                 <span className="block font-light italic text-teal">Introducing,</span>
-                                <span className="relative inline-block">
-                                    Swift Fit Social
+                                Swift Fit <span className="relative inline-block">
+                                    Social
                                     {/* Decorative squiggle */}
                                     <svg
-                                        className="absolute -bottom-2 left-0 w-48 h-8 text-teal"
+                                        className="absolute -bottom-2 left-0 w-full h-8 text-[#FF5C00]"
                                         viewBox="0 0 200 30"
                                         fill="none"
+                                        preserveAspectRatio="none"
                                     >
                                         <path
                                             d="M0 15 Q25 5, 50 15 T100 15 T150 15 T200 15"
@@ -238,7 +239,7 @@ export default function SwiftFitSocialPage() {
                                 className="relative aspect-[4/3] rounded-2xl overflow-hidden"
                             >
                                 <Image
-                                    src="/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp"
+                                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp`}
                                     alt="Swift Fit Social community event"
                                     fill
                                     className="object-cover"
@@ -476,7 +477,7 @@ export default function SwiftFitSocialPage() {
                                 <input
                                     type="email"
                                     placeholder="Email Address"
-                                    className="flex-1 px-6 py-3 rounded-full text-ink focus:outline-none focus:ring-2 focus:ring-white/50"
+                                    className="flex-1 px-6 py-3 rounded-full bg-transparent border border-white text-white placeholder:text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                                     required
                                 />
                                 <Button type="submit" className="bg-teal text-white hover:bg-teal/90 rounded-full px-8 py-6 font-semibold shadow-lg">
