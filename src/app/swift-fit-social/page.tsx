@@ -101,8 +101,8 @@ export default function SwiftFitSocialPage() {
                                 <motion.h1
                                     variants={fadeUpVariant}
                                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="text-[32.5vw] font-extrabold leading-[0.9] tracking-tight"
-                                    style={{ color: '#FFFFFF' }}
+                                    className="font-extrabold leading-[0.9] tracking-tight"
+                                    style={{ color: '#FFFFFF', fontSize: '36vw' }}
                                 >
                                     SWIFT<span style={{ color: '#FF5C00' }}>*</span>FIT
                                     <span className="block text-[0.55em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>SOCIAL</span>
@@ -114,7 +114,7 @@ export default function SwiftFitSocialPage() {
                                     transition={{ duration: 0.6, delay: 0.2 }}
                                     className="flex justify-center -mt-[2vw]"
                                 >
-                                    <svg width="275" height="73" viewBox="0 0 275 73" className="w-[30vw] max-w-[275px]" style={{ color: '#FF5C00' }}>
+                                    <svg width="412" height="110" viewBox="0 0 275 73" className="w-[45vw] max-w-[412px]" style={{ color: '#FF5C00' }}>
                                         <path
                                             d="M0 36.5 Q34 10, 69 36.5 T138 36.5 T206 36.5 T275 36.5"
                                             fill="none"
@@ -147,12 +147,12 @@ export default function SwiftFitSocialPage() {
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 0.6 + i * 0.08, type: "spring" }}
                                         >
-                                            <StarIcon className="w-4 h-4 text-white fill-white" />
+                                            <StarIcon className="w-6 h-6 text-white fill-white" />
                                         </motion.div>
                                     ))}
-                                    <span className="ml-2 font-medium text-white text-base">5/5</span>
+                                    <span className="ml-2 font-medium text-white text-2xl">5/5</span>
                                 </div>
-                                <p className="text-base text-white font-medium">
+                                <p className="text-2xl text-white font-medium">
                                     How Austin&apos;s Wellness<br />Community Connects
                                 </p>
                             </motion.div>
@@ -162,7 +162,7 @@ export default function SwiftFitSocialPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.6 }}
-                                className="text-[14px] md:text-[16px] font-semibold text-white mx-auto mb-6 leading-tight whitespace-nowrap"
+                                className="text-[21px] md:text-[24px] font-semibold text-white mx-auto mb-6 leading-tight whitespace-nowrap"
                             >
                                 Bringing people together through movement,<br />
                                 music, and meaningful connection.
@@ -175,7 +175,7 @@ export default function SwiftFitSocialPage() {
                                 transition={{ duration: 0.6, delay: 0.8 }}
                             >
                                 <motion.svg
-                                    className="w-[31px] h-[30px] mx-auto text-white"
+                                    className="w-[46px] h-[45px] mx-auto text-white"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
