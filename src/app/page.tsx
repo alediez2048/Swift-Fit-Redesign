@@ -572,8 +572,8 @@ export default function Home() {
                 className="font-extrabold leading-[0.9] tracking-tight"
                 style={{ color: '#FFFFFF', fontSize: '15vw' }}
               >
-                SWIFT
-                <span className="relative inline-block w-[0.8em] h-[0.8em] mx-[0.05em] align-middle -translate-y-[0.1em]">
+                SWIFT FIT
+                <div className="relative w-[0.8em] h-[0.8em] mx-auto my-[-0.2em] z-10">
                   <Image
                     src={asteriskImage}
                     alt="*"
@@ -581,9 +581,8 @@ export default function Home() {
                     className="object-contain"
                     priority
                   />
-                </span>
-                FIT
-                <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>EVENTS</span>
+                </div>
+                <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1 relative z-20" style={{ color: '#FFFFFF' }}>EVENTS</span>
               </motion.h1>
 
               {/* Decorative Squiggle - overlapping title bottom */}
