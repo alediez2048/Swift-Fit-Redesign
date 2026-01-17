@@ -473,7 +473,7 @@ export default function SwiftFitSocialPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-white">
+                            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 !text-white">
                                 Sign up to make sure you don&apos;t miss the next swift fit social event.
                             </h2>
                             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
