@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import asteriskImage from "@/assets/images/asterisk.png";
 
 // Animation variants
 const fadeUpVariant = {
@@ -104,7 +105,17 @@ export default function SwiftFitSocialPage() {
                                     className="font-extrabold leading-[0.9] tracking-tight"
                                     style={{ color: '#FFFFFF', fontSize: '15vw' }}
                                 >
-                                    SWIFT<span style={{ color: '#FF5C00' }}>*</span>FIT
+                                    SWIFT
+                                    <span className="relative inline-block w-[0.8em] h-[0.8em] mx-[0.05em] align-middle -translate-y-[0.1em]">
+                                        <Image
+                                            src={asteriskImage}
+                                            alt="*"
+                                            fill
+                                            className="object-contain"
+                                            priority
+                                        />
+                                    </span>
+                                    FIT
                                     <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>SOCIAL</span>
                                 </motion.h1>
 

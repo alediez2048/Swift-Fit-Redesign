@@ -23,6 +23,7 @@ import logoRambler from "@/assets/images/partners/rambler.png";
 import logoAustinMonthly from "@/assets/images/partners/austin-monthly.png";
 import logoVoss from "@/assets/images/partners/voss.png";
 import logoTacodeli from "@/assets/images/partners/tacodeli.png";
+import asteriskImage from "@/assets/images/asterisk.png";
 
 // Animation variants
 const fadeUpVariant = {
@@ -571,7 +572,17 @@ export default function Home() {
                 className="font-extrabold leading-[0.9] tracking-tight"
                 style={{ color: '#FFFFFF', fontSize: '15vw' }}
               >
-                SWIFT<span style={{ color: '#FF5C00' }}>*</span>FIT
+                SWIFT
+                <span className="relative inline-block w-[0.8em] h-[0.8em] mx-[0.05em] align-middle -translate-y-[0.1em]">
+                  <Image
+                    src={asteriskImage}
+                    alt="*"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </span>
+                FIT
                 <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1" style={{ color: '#FFFFFF' }}>EVENTS</span>
               </motion.h1>
 
