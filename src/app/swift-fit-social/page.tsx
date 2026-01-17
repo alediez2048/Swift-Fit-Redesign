@@ -5,8 +5,27 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Marquee } from "@/components/ui/marquee";
 import asteriskImage from "@/assets/images/asterisk.png";
 import teamImage from "@/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp";
+import {
+    Star,
+    CaretDown,
+    FlowerLotus,
+    PresentationChart,
+    Sneaker,
+    Handshake,
+    ShieldCheck,
+    Users,
+    HouseLine,
+    MusicNote,
+    Fire,
+    MapPin,
+    Heart,
+    Barbell,
+    Storefront,
+    IconWeight,
+} from "@phosphor-icons/react";
 
 // Animation variants
 const fadeUpVariant = {
@@ -60,13 +79,35 @@ const offerings = [
 ];
 
 // Icons
-function StarIcon({ className }: { className?: string }) {
-    return (
-        <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
-        </svg>
-    );
-}
+const iconMap: Record<string, React.FC<{ className?: string; weight?: IconWeight }>> = {
+    yoga: FlowerLotus,
+    workshop: PresentationChart,
+    fitness: Barbell,
+    fair: Storefront,
+    run: Sneaker,
+    sponsor: Handshake,
+    star: Star,
+    users: Users,
+    building: HouseLine,
+    music: MusicNote,
+    bbq: Fire,
+    location: MapPin,
+    heart: Heart,
+    wellness: FlowerLotus,
+};
+
+// Marquee items - Austin vibes (Same as homepage minus excluded items)
+const marqueeItems = [
+    { text: "CORPORATE WELLNESS", icon: "star" },
+    { text: "TEAM BUILDING", icon: "users" },
+    { text: "LIVE MUSIC", icon: "music" },
+    { text: "VENUE RENTAL", icon: "building" },
+    { text: "FITNESS EVENTS", icon: "heart" },
+    { text: "AUSTIN TX", icon: "location" },
+    { text: "KEEP IT WEIRD", icon: "star" },
+    { text: "DOWNTOWN VIBES", icon: "building" },
+    { text: "YOGA", icon: "wellness" },
+];
 
 export default function SwiftFitSocialPage() {
     return (
@@ -74,7 +115,7 @@ export default function SwiftFitSocialPage() {
             <main className="min-h-screen bg-white -mt-16">
 
                 {/* Hero Section */}
-                <section className="relative h-screen overflow-hidden border-x-[20px] border-b-[20px] border-white box-border">
+                <section className="relative h-screen overflow-hidden border-x-[20px] border-white box-border">
                     {/* Video Background */}
                     <div className="absolute inset-0">
                         <video
@@ -158,7 +199,7 @@ export default function SwiftFitSocialPage() {
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 0.6 + i * 0.08, type: "spring" }}
                                         >
-                                            <StarIcon className="w-[30px] h-[30px] text-white fill-white" />
+                                            <Star className="w-[30px] h-[30px] text-white" weight="fill" />
                                         </motion.div>
                                     ))}
                                     <span className="ml-2 font-medium text-white text-2xl">5/5</span>
@@ -177,27 +218,29 @@ export default function SwiftFitSocialPage() {
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.6, delay: 0.8 }}
                             >
-                                <motion.svg
-                                    className="w-[46px] h-[45px] mx-auto text-white"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    animate={{
-                                        y: [0, 6, 0],
-                                    }}
-                                    transition={{
-                                        duration: 1.5,
-                                        repeat: Infinity,
-                                        ease: "easeInOut",
-                                    }}
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                </motion.svg>
+                                <CaretDown className="w-[46px] h-[45px] mx-auto text-white" weight="bold" />
                             </motion.div>
                         </div>
                     </div>
                 </section>
+
+                {/* Orange Banner - Austin Vibes */}
+                <div className="relative bg-coral py-8 overflow-hidden z-20">
+                    <div className="absolute left-0 top-0 bottom-0 top-0 w-16 bg-gradient-to-r from-coral to-transparent z-10" />
+                    <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-coral to-transparent z-10" />
+
+                    <Marquee speed="normal" className="text-white">
+                        {marqueeItems.map((item, index) => {
+                            const Icon = iconMap[item.icon] || Star;
+                            return (
+                                <div key={index} className="flex items-center gap-5 px-9">
+                                    <Icon className="w-8 h-8" weight="fill" />
+                                    <span className="font-bold text-lg tracking-wide">{item.text}</span>
+                                </div>
+                            );
+                        })}
+                    </Marquee>
+                </div>
 
 
                 {/* Welcome Section */}
@@ -319,24 +362,25 @@ export default function SwiftFitSocialPage() {
                         </motion.div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {offerings.map((offering, index) => (
-                                <motion.div
-                                    key={offering.title}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-                                >
-                                    <div className="w-14 h-14 rounded-xl bg-coral/10 flex items-center justify-center mb-6">
-                                        <svg className="w-7 h-7 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                        </svg>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-teal mb-3">{offering.title}</h3>
-                                    <p className="text-muted-foreground">{offering.description}</p>
-                                </motion.div>
-                            ))}
+                            {offerings.map((offering, index) => {
+                                const Icon = iconMap[offering.icon] || ShieldCheck;
+                                return (
+                                    <motion.div
+                                        key={offering.title}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                                    >
+                                        <div className="w-14 h-14 rounded-xl bg-coral/10 flex items-center justify-center mb-6">
+                                            <Icon className="w-7 h-7 text-coral" weight="duotone" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-teal mb-3">{offering.title}</h3>
+                                        <p className="text-muted-foreground">{offering.description}</p>
+                                    </motion.div>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/images/Gemini_Generated_Image_h2x1h5h2x1h5h2x1.png";
@@ -7,76 +9,63 @@ const footerLinks = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/corporate-wellness" },
   { name: "Venue", href: "/venue-rental" },
-  { name: "Events", href: "/swift-fit-social" },
-  { name: "Packages", href: "/corporate-packages" },
+  { name: "Events", href: "/events" },
+  { name: "Swift Fit Social", href: "/swift-fit-social" },
   { name: "Contact", href: "/contact" },
-  { name: "Partner With Us", href: "/partner-with-us" },
 ];
 
 const marqueeItems = [
   { text: "CORPORATE WELLNESS", icon: "star" },
-  { text: "TEAM BUILDING", icon: "heart" },
-  { text: "AUSTIN TX", icon: "location" },
+  { text: "TEAM BUILDING", icon: "users" },
+  { text: "LIVE MUSIC", icon: "music" },
   { text: "VENUE RENTAL", icon: "building" },
-  { text: "FITNESS EVENTS", icon: "star" },
+  { text: "FITNESS EVENTS", icon: "heart" },
+  { text: "AUSTIN TX", icon: "location" },
+  { text: "KEEP IT WEIRD", icon: "star" },
+  { text: "DOWNTOWN VIBES", icon: "building" },
+  { text: "YOGA", icon: "wellness" },
 ];
 
-function StarIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
-    </svg>
-  );
-}
+import {
+  Star,
+  Heart,
+  MapPin,
+  Buildings,
+  Pizza,
+  MusicNote,
+  Fire,
+  Users,
+  FlowerLotus,
+  IconWeight,
+} from "@phosphor-icons/react";
 
-function HeartIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-    </svg>
-  );
-}
-
-function LocationIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-    </svg>
-  );
-}
-
-function BuildingIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-    </svg>
-  );
-}
-
-const iconMap: Record<string, React.FC<{ className?: string }>> = {
-  star: StarIcon,
-  heart: HeartIcon,
-  location: LocationIcon,
-  building: BuildingIcon,
+const iconMap: Record<string, React.FC<{ className?: string; weight?: IconWeight }>> = {
+  star: Star,
+  heart: Heart,
+  location: MapPin,
+  building: Buildings,
+  taco: Pizza, // Using Pizza as a playful food alternative
+  music: MusicNote,
+  bbq: Fire,
+  users: Users,
+  wellness: FlowerLotus,
 };
 
 export function Footer() {
   return (
     <footer className="bg-white">
       {/* Marquee Banner */}
-      <div className="relative bg-coral py-4 overflow-hidden">
+      <div className="relative bg-coral py-8 overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-coral to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-coral to-transparent z-10" />
 
         <Marquee speed="normal" className="text-white">
           {marqueeItems.map((item, index) => {
-            const Icon = iconMap[item.icon];
+            const Icon = iconMap[item.icon] || Star;
             return (
-              <div key={index} className="flex items-center gap-3 px-6">
-                <Icon className="w-5 h-5" />
-                <span className="font-bold text-sm tracking-wide">{item.text}</span>
+              <div key={index} className="flex items-center gap-5 px-9">
+                <Icon className="w-8 h-8" weight="fill" />
+                <span className="font-bold text-lg tracking-wide">{item.text}</span>
               </div>
             );
           })}
