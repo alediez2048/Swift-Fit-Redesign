@@ -19,48 +19,92 @@ Swift Fit Events is transitioning to feel like a high-end **"Corporate Sanctuary
 
 ## Tech Stack
 
-- **Framework:** Next.js 15 (App Router)
+- **Framework:** Next.js 16 (App Router, Static Export)
 - **Styling:** Tailwind CSS v4
-- **Components:** shadcn/ui + Magic UI
-- **Animation:** Framer Motion + Lenis
-- **Typography:** Playfair Display (serif) + Satoshi (sans)
-- **Deployment:** Vercel
+- **Components:** shadcn/ui + Radix Primitives
+- **Animation:** Framer Motion (LazyMotion) + Lenis
+- **Typography:** Playfair Display (serif) + Inter (sans)
+- **Icons:** Phosphor Icons
+- **Deployment:** GitHub Pages (Static Export)
+
+## Performance Optimizations
+
+This project includes comprehensive performance optimizations:
+
+### Image Optimization
+| Asset | Original | Optimized | Savings |
+|-------|----------|-----------|---------|
+| Hero Poster | 510 KB | 89 KB | **83%** |
+| Logo | 228 KB | 7 KB | **97%** |
+| Asterisk | 131 KB | 4 KB | **97%** |
+| Hero Video | 9.5 MB | 4.2 MB | **56%** |
+
+### Code Optimizations
+- **LazyMotion**: Tree-shaking for framer-motion (~50% bundle reduction)
+- **Image sizes props**: Responsive image delivery via `next/image`
+- **fetchPriority**: High-priority loading for LCP elements
+- **Preload links**: Critical assets preloaded in `<head>`
+
+### Accessibility
+- WCAG AA color contrast compliance
+- Proper ARIA attributes on interactive elements
+- Screen reader optimizations (`sr-only` labels)
+
+### SEO & PWA
+- Complete metadata with OpenGraph/Twitter cards
+- `manifest.json` for PWA support
+- `robots.txt` for search indexing
+- Semantic HTML structure
 
 ## Brand Colors
 
 | Role | Hex | Name |
 |------|-----|------|
-| Canvas | `#F7F5F0` | Limestone Cream |
+| Canvas | `#FFFFFF` | Pure White |
 | Text | `#1A1A1A` | Deep Charcoal |
-| Authority | `#00556B` | Swift Teal |
-| CTA | `#FBC544` | Swift Yellow |
-| Accent | `#F49028` | Swift Orange |
+| Authority | `#1D4E5F` | Swift Teal |
+| CTA | `#E5673D` | Swift Coral |
+| Accent | `#F5E6D3` | Swift Cream |
 
 ## Getting Started
 
 ```bash
+# Install dependencies
 npm install
+
+# Development
 npm run dev
+
+# Production build
+npm run build
+
+# Serve production locally
+npx serve@latest out
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
+
+## Scripts
+
+```bash
+# Optimize images (requires sharp)
+node scripts/optimize-images.js
+```
+
+## Site Structure
+
+```
+/                       → Homepage (Dual B2B/B2C Hero)
+/swift-fit-social       → Community Events (B2C)
+/corporate-wellness     → B2B Services
+/venue-rental           → Venue Information
+/about                  → Team & Story
+/contact                → Lead Capture Form
+```
 
 ## Documentation
 
 - [Brand Identity](docs/brand-identity.md)
 - [Tech Stack Details](docs/tech-stack.md)
 - [Current Sitemap](docs/sitemap.md)
-- [Communication Insights](docs/communication-insights.md)
 
-## Site Structure
-
-```
-/                       → Homepage (Dual B2B/B2C Hero)
-/corporate-wellness     → B2B Services
-/corporate-packages     → Package Details
-/venue-rental          → Venue Information
-/swift-fit-social      → Community Events (B2C)
-/about                 → Team & Story
-/contact               → Lead Capture Form
-/partner-with-us       → Sponsorship
-```
