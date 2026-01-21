@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
@@ -23,7 +23,7 @@ import logoRambler from "@/assets/images/partners/rambler.png";
 import logoAustinMonthly from "@/assets/images/partners/austin-monthly.png";
 import logoVoss from "@/assets/images/partners/voss.png";
 import logoTacodeli from "@/assets/images/partners/tacodeli.png";
-import asteriskImage from "@/assets/images/asterisk.png";
+import asteriskImage from "@/assets/images/asterisk.webp";
 import teamImage from "@/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp";
 import {
   Star,
@@ -251,7 +251,7 @@ function FAQSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
   return (
     <section className="py-24 lg:py-32 bg-surface relative z-10">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -267,11 +267,11 @@ function FAQSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
           <p className="text-muted-foreground">
             Everything you need to know before booking your next corporate event.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -290,7 +290,7 @@ function FAQSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
                   <CaretDown className="w-5 h-5 text-white" weight="bold" />
                 </div>
               </button>
-              <motion.div
+              <m.div
                 initial={false}
                 animate={{
                   height: openIndex === index ? "auto" : 0,
@@ -302,8 +302,8 @@ function FAQSection({ faqs }: { faqs: { question: string; answer: string }[] }) 
                 <div className="px-6 py-4 text-muted-foreground">
                   {faq.answer}
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
         </div>
       </div>
@@ -371,12 +371,13 @@ export default function Home() {
       {/* Hero Section - Matching reference layout */}
       <section className="relative h-screen overflow-hidden border-x-[20px] border-white box-border">
         {/* Video Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" aria-hidden="true">
           <video
             autoPlay
             muted
             loop
             playsInline
+            poster={teamImage.src}
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src={`${process.env.NODE_ENV === 'production' ? '/Swift-Fit-Redesign' : ''}/assets/video/hero-video.mp4`} type="video/mp4" />
@@ -386,7 +387,7 @@ export default function Home() {
         </div>
 
         {/* Animated Background Shapes */}
-        <motion.div
+        <m.div
           className="absolute top-20 right-20 w-64 h-64 bg-coral/20 rounded-full blur-2xl"
           animate={{
             scale: [1, 1.2, 1],
@@ -398,7 +399,7 @@ export default function Home() {
             ease: "easeInOut",
           }}
         />
-        <motion.div
+        <m.div
           className="absolute bottom-1/3 left-20 w-48 h-48 bg-cream/20 rounded-full blur-2xl"
           animate={{
             scale: [1.2, 1, 1.2],
@@ -416,12 +417,12 @@ export default function Home() {
 
           {/* TOP SECTION - Title at ~16% from top */}
           <div className="pt-[calc(10vh+15px)] md:pt-[calc(12vh+15px)] lg:pt-[calc(14vh+15px)] text-center">
-            <motion.div
+            <m.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
             >
-              <motion.h1
+              <m.h1
                 variants={fadeUpVariant}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="font-extrabold leading-[0.9] tracking-tight"
@@ -435,13 +436,14 @@ export default function Home() {
                     fill
                     className="object-contain"
                     priority
+                    sizes="10vw"
                   />
                 </div>
-                <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1 relative z-20" style={{ color: '#FFFFFF' }}>EVENTS</span>
-              </motion.h1>
+                <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1 relative z-20" style={{ color: '#FFFFFF' }}>SOCIAL</span>
+              </m.h1>
 
               {/* Decorative Squiggle - overlapping title bottom */}
-              <motion.div
+              <m.div
                 variants={fadeUpVariant}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="flex justify-center -mt-[2vw]"
@@ -455,8 +457,8 @@ export default function Home() {
                     strokeLinecap="round"
                   />
                 </svg>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
 
           {/* MIDDLE SECTION - Flexible spacer (image content area) */}
@@ -465,7 +467,7 @@ export default function Home() {
           {/* BOTTOM SECTION - Rating at ~66%, Tagline at ~75%, Arrow at ~92% */}
           <div className="pb-[14vh] text-center">
             {/* Rating - at ~66% from top */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -473,32 +475,32 @@ export default function Home() {
             >
               <div className="flex items-center justify-center gap-1 mb-1">
                 {[...Array(5)].map((_, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                   >
                     <Star className="w-[30px] h-[30px] text-white" weight="fill" />
-                  </motion.div>
+                  </m.div>
                 ))}
                 <span className="ml-2 font-medium text-white text-2xl">5/5</span>
               </div>
               <p className="text-2xl text-white font-medium">
                 Austin&apos;s Top-Rated Corporate<br />Wellness Partner
               </p>
-            </motion.div>
+            </m.div>
 
             {/* Tagline - exactly two lines */}
 
 
             {/* Animated Arrow - at ~92% from top */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <CaretDown className="w-[46px] h-[45px] mx-auto text-white" weight="bold" />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -526,7 +528,7 @@ export default function Home() {
       <section className="py-24 lg:py-32 bg-white relative z-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Welcome Heading */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -552,12 +554,12 @@ export default function Home() {
                 </svg>
               </span>
             </h2>
-          </motion.div>
+          </m.div>
 
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
             {/* Left - Image */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -568,11 +570,12 @@ export default function Home() {
                 alt="Swift Fit Events team"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
-            </motion.div>
+            </m.div>
 
             {/* Right - About & Mission */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -599,7 +602,7 @@ export default function Home() {
                   We believe that healthy, connected teams drive business success. Our mission is to provide comprehensive wellness programs and unforgettable team experiences that boost morale, reduce burnout, and create lasting positive change in corporate culture.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Stats Cards */}
@@ -609,7 +612,7 @@ export default function Home() {
               { icon: "thumbsup", value: "98%", label: "Client Satisfaction Rate" },
               { icon: "users", value: "50+", label: "Enterprise Partners" },
             ].map((stat, index) => (
-              <motion.div
+              <m.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -630,7 +633,7 @@ export default function Home() {
                 </div>
                 <div className="text-4xl md:text-5xl font-extrabold text-teal mb-2">{stat.value}</div>
                 <p className="text-muted-foreground font-medium">{stat.label}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -640,7 +643,7 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-24 lg:py-32 bg-surface relative z-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -653,13 +656,13 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-teal">
               What We Offer
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = iconMap[service.icon];
               return (
-                <motion.div
+                <m.div
                   key={service.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -667,20 +670,20 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Link href={service.href} className="group block">
-                    <motion.div
+                    <m.div
                       whileHover={{ y: -8, scale: 1.02 }}
                       transition={{ type: "spring", stiffness: 300 }}
                       className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-teal/10 to-coral/10 mb-6 shadow-lg group-hover:shadow-xl transition-shadow"
                     >
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-teal/0 group-hover:bg-teal/5 transition-colors" />
-                    </motion.div>
+                    </m.div>
                     <h3 className="text-2xl font-bold text-teal mb-2 group-hover:text-coral transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground">{service.description}</p>
                   </Link>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -690,7 +693,7 @@ export default function Home() {
       {/* How It Works Section */}
       <section className="py-24 lg:py-32 bg-white relative z-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -703,13 +706,13 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-teal">
               Simple as 1-2-3
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {howItWorksSteps.map((step, index) => {
               const Icon = iconMap[step.icon];
               return (
-                <motion.div
+                <m.div
                   key={step.step}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -730,7 +733,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-teal mb-3">{step.title}</h3>
                   <p className="text-muted-foreground max-w-xs mx-auto">{step.description}</p>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -745,7 +748,7 @@ export default function Home() {
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-teal/5 to-transparent z-10" />
 
         <div className="container mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -754,7 +757,7 @@ export default function Home() {
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal/60">
               Trusted by leading companies
             </span>
-          </motion.div>
+          </m.div>
         </div>
 
         <Marquee speed="slow" pauseOnHover gap="5rem" className="py-2">
@@ -769,6 +772,7 @@ export default function Home() {
                 width={360}
                 height={180}
                 className="h-24 md:h-28 w-auto object-contain"
+                sizes="(max-width: 768px) 33vw, 15vw"
               />
             </div>
           ))}
@@ -778,7 +782,7 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="py-24 lg:py-32 bg-surface relative z-10 overflow-hidden">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -791,11 +795,11 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-teal">
               What Our Clients Say
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="relative min-h-[300px]">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0 }}
                 animate={{
@@ -816,7 +820,7 @@ export default function Home() {
                     {testimonial.role}, {testimonial.company}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
@@ -838,7 +842,7 @@ export default function Home() {
       {/* Video Section */}
       <section className="py-24 lg:py-32 bg-white relative z-10">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -851,9 +855,9 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-teal">
               Experience Swift Fit
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -862,13 +866,13 @@ export default function Home() {
           >
             {/* Play button overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
+              <m.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-24 h-24 rounded-full bg-coral flex items-center justify-center shadow-lg"
               >
                 <Play className="w-10 h-10 text-white ml-1" weight="fill" />
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Placeholder text */}
@@ -879,7 +883,7 @@ export default function Home() {
             {/* Decorative elements */}
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-coral/20 rounded-full blur-2xl" />
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-cream/10 rounded-full blur-2xl" />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -890,7 +894,7 @@ export default function Home() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-teal">
         <div className="absolute inset-0">
           {/* Decorative elements */}
-          <motion.div
+          <m.div
             className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
@@ -902,7 +906,7 @@ export default function Home() {
               ease: "easeInOut",
             }}
           />
-          <motion.div
+          <m.div
             className="absolute bottom-20 left-20 w-48 h-48 bg-black/10 rounded-full blur-3xl"
             animate={{
               scale: [1.2, 1, 1.2],
@@ -916,7 +920,7 @@ export default function Home() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -944,7 +948,7 @@ export default function Home() {
                 <Link href="/services">View Services</Link>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </>

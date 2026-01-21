@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/assets/images/Gemini_Generated_Image_h2x1h5h2x1h5h2x1.png";
+import logo from "@/assets/images/logo.webp";
 import { Marquee } from "@/components/ui/marquee";
 
 const footerLinks = [
@@ -122,7 +122,7 @@ export function Footer() {
               href="https://instagram.com/swiftfitevents"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink/60 hover:text-coral transition-colors"
+              className="text-ink-secondary hover:text-coral transition-colors"
             >
               <span className="sr-only">Instagram</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export function Footer() {
               href="https://linkedin.com/company/swiftfitevents"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink/60 hover:text-coral transition-colors"
+              className="text-ink-secondary hover:text-coral transition-colors"
             >
               <span className="sr-only">LinkedIn</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@ export function Footer() {
             </a>
           </div>
 
-          <p className="text-sm text-ink/50">
+          <p className="text-sm text-ink-secondary">
             © {new Date().getFullYear()} Swift Fit Events. All rights reserved.
           </p>
           <p className="text-[10px] opacity-30 font-mono">

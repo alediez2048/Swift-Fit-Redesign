@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { playfair, inter } from "@/lib/fonts";
 import { Navbar, Footer, SmoothScrollProvider } from "@/components/layout";
+import { MotionProvider } from "@/components/providers/motion-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,6 +39,8 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  metadataBase: new URL("https://www.swiftfitevents.com"),
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -48,11 +51,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="bg-canvas text-ink antialiased">
-        <SmoothScrollProvider>
-          <Navbar />
-          <main className="min-h-screen pt-16">{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
+        <MotionProvider>
+          <SmoothScrollProvider>
+            <Navbar />
+            <main className="min-h-screen pt-16">{children}</main>
+            <Footer />
+          </SmoothScrollProvider>
+        </MotionProvider>
       </body>
     </html>
   );

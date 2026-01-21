@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
-import asteriskImage from "@/assets/images/asterisk.png";
+import asteriskImage from "@/assets/images/asterisk.webp";
 import teamImage from "@/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp";
 import {
     Star,

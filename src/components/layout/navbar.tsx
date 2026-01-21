@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/images/Gemini_Generated_Image_h2x1h5h2x1h5h2x1.png";
+import logo from "@/assets/images/logo.webp";
 import { List, X } from "@phosphor-icons/react";
 
 const navigation = [

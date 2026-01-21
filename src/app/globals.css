@@ -13,7 +13,7 @@
      =================== */
   --canvas: #FFFFFF;      /* Pure White - Primary background */
   --ink: #1A1A1A;         /* Dark Charcoal - Body text */
-  --ink-secondary: #6B7280; /* Medium Gray - Secondary text */
+  --ink-secondary: #4B5563; /* Medium Gray - Secondary text (Gray-600) */
   --teal: #1D4E5F;        /* Swift Teal - Logo background, headlines */
   --coral: #E5673D;       /* Swift Coral - Fox icon, CTAs, accents */
   --cream: #F5E6D3;       /* Swift Cream - Text on dark backgrounds */
