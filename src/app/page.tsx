@@ -8,21 +8,21 @@ import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
 
 // Partner logos
-import logoBumble from "@/assets/images/partners/bumble.png";
-import logoCoindesk from "@/assets/images/partners/coindesk.png";
-import logoFidelity from "@/assets/images/partners/fidelity.png";
-import logoGoldmanSachs from "@/assets/images/partners/goldman-sachs.png";
-import logoIBM from "@/assets/images/partners/ibm.png";
-import logoVisa from "@/assets/images/partners/visa.png";
-import logoTiktok from "@/assets/images/partners/tiktok.png";
-import logoAccenture from "@/assets/images/partners/accenture.png";
-import logoMadHippie from "@/assets/images/partners/mad-hippie.png";
-import logoSnapKitchen from "@/assets/images/partners/snap-kitchen.png";
-import logoSansBar from "@/assets/images/partners/sans-bar.png";
-import logoRambler from "@/assets/images/partners/rambler.png";
-import logoAustinMonthly from "@/assets/images/partners/austin-monthly.png";
-import logoVoss from "@/assets/images/partners/voss.png";
-import logoTacodeli from "@/assets/images/partners/tacodeli.png";
+import logoBumble from "@/assets/images/partners/bumble.webp";
+import logoCoindesk from "@/assets/images/partners/coindesk.webp";
+import logoFidelity from "@/assets/images/partners/fidelity.webp";
+import logoGoldmanSachs from "@/assets/images/partners/goldman-sachs.webp";
+import logoIBM from "@/assets/images/partners/ibm.webp";
+import logoVisa from "@/assets/images/partners/visa.webp";
+import logoTiktok from "@/assets/images/partners/tiktok.webp";
+import logoAccenture from "@/assets/images/partners/accenture.webp";
+import logoMadHippie from "@/assets/images/partners/mad-hippie.webp";
+import logoSnapKitchen from "@/assets/images/partners/snap-kitchen.webp";
+import logoSansBar from "@/assets/images/partners/sans-bar.webp";
+import logoRambler from "@/assets/images/partners/rambler.webp";
+import logoAustinMonthly from "@/assets/images/partners/austin-monthly.webp";
+import logoVoss from "@/assets/images/partners/voss.webp";
+import logoTacodeli from "@/assets/images/partners/tacodeli.webp";
 import asteriskImage from "@/assets/images/asterisk.webp";
 import teamImage from "@/assets/images/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp";
 import {
