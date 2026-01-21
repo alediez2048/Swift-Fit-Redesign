@@ -50,6 +50,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Preload hero poster for faster LCP */}
+        <link
+          rel="preload"
+          as="image"
+          href="/_next/static/media/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp"
+          type="image/webp"
+        />
+      </head>
       <body className="bg-canvas text-ink antialiased">
         <MotionProvider>
           <SmoothScrollProvider>

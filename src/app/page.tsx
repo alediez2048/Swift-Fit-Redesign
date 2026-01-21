@@ -377,6 +377,8 @@ export default function Home() {
             muted
             loop
             playsInline
+            // @ts-expect-error - fetchPriority is valid but not in React types yet
+            fetchPriority="high"
             poster={teamImage.src}
             className="absolute inset-0 w-full h-full object-cover"
           >
