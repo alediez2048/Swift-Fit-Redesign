@@ -8,7 +8,11 @@ export default function AboutUsPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <HeroSection variant="compact" heading="The Swift Team" />
+            <HeroSection
+                variant="compact"
+                heading="The Swift Team"
+                subheading="Meet the passionate people behind Austin's premier wellness events"
+            />
 
             {/* Founder Section */}
             <section className="py-24 lg:py-32 bg-white relative z-10">

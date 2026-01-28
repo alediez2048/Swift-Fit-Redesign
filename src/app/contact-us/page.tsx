@@ -8,7 +8,11 @@ export default function ContactUsPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <HeroSection variant="compact" heading="Contact Us" />
+            <HeroSection
+                variant="compact"
+                heading="Contact Us"
+                subheading="Let's create something amazing together"
+            />
 
             {/* Contact Form Section */}
             <section className="py-24 lg:py-32 bg-white relative z-10">

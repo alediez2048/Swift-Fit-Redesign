@@ -82,7 +82,11 @@ export default function CorporateEventsPackagesPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <HeroSection variant="compact" heading="Corporate Packages" />
+            <HeroSection
+                variant="compact"
+                heading="Corporate Packages"
+                subheading="Curated wellness experiences tailored for your team"
+            />
 
             {/* Wellness Blueprint Section */}
             <section className="py-24 lg:py-32 bg-surface relative z-10">
