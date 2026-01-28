@@ -441,7 +441,7 @@ export default function Home() {
                     sizes="10vw"
                   />
                 </div>
-                <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1 relative z-20" style={{ color: '#FFFFFF' }}>SOCIAL</span>
+                <span className="block text-[0.41em] tracking-[0.3em] font-bold mt-1 relative z-20" style={{ color: '#FFFFFF' }}>EVENTS</span>
               </m.h1>
 
               {/* Decorative Squiggle - overlapping title bottom */}
