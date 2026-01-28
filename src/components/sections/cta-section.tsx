@@ -39,7 +39,7 @@ export function CTASection({
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                    <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ color: '#FFFFFF' }}>
                         {heading}
                     </h2>
                     {description && (
