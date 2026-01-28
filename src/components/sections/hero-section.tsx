@@ -209,11 +209,11 @@ function CompactHeroContent({
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center"
             >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 leading-tight">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight" style={{ color: '#FFFFFF' }}>
                     {heading}
                 </h1>
                 {subheading && (
-                    <p className="text-xl md:text-2xl text-white font-medium max-w-3xl">
+                    <p className="text-xl md:text-2xl font-medium max-w-3xl" style={{ color: '#FFFFFF' }}>
                         {subheading}
                     </p>
                 )}
