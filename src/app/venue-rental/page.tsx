@@ -60,6 +60,7 @@ export default function VenueRentalPage() {
             <HeroSection
                 variant="compact"
                 heading="Two Venue Rentals Located in the Heart of Downtown Austin"
+                subheading="918 & 920 Congress Ave - Perfect spaces for your next event"
             />
 
             {/* Venue Overview */}

@@ -8,6 +8,7 @@ export default function CatalogPage() {
             <HeroSection
                 variant="compact"
                 heading="thanks for running INTO US AT VISIT AUSTIN!"
+                subheading="Explore our 2025 wellness programming catalog"
             />
 
             {/* Introduction Section */}
