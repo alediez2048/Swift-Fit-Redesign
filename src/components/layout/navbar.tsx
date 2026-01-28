@@ -9,12 +9,12 @@ import logo from "@/assets/images/logo.webp";
 import { List, X } from "@phosphor-icons/react";
 
 const navigation = [
-  { name: "About", href: "/about" },
+  { name: "About", href: "/about-us" },
   { name: "Services", href: "/corporate-wellness" },
   { name: "Venue", href: "/venue-rental" },
-  { name: "Events", href: "/events" },
+  { name: "Events", href: "/community-events" },
   { name: "Swift Fit Social", href: "/swift-fit-social" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/contact-us" },
 ];
 
 export function Navbar() {
@@ -57,7 +57,7 @@ export function Navbar() {
             size="lg"
             className="bg-cta text-white hover:bg-cta/90 font-semibold rounded-full px-8 py-3 text-base"
           >
-            <Link href="/contact">Contact Us</Link>
+            <Link href="/contact-us">Contact Us</Link>
           </Button>
         </div>
 
@@ -139,7 +139,7 @@ export function Navbar() {
                       asChild
                       className="w-full bg-cta text-white hover:bg-cta/90 font-medium rounded-full"
                     >
-                      <Link href="/contact">Get Started</Link>
+                      <Link href="/contact-us">Get Started</Link>
                     </Button>
                   </div>
                 </div>

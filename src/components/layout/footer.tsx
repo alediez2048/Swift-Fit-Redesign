@@ -6,12 +6,12 @@ import logo from "@/assets/images/logo.webp";
 import { Marquee } from "@/components/ui/marquee";
 
 const footerLinks = [
-  { name: "About", href: "/about" },
+  { name: "About", href: "/about-us" },
   { name: "Services", href: "/corporate-wellness" },
   { name: "Venue", href: "/venue-rental" },
-  { name: "Events", href: "/events" },
+  { name: "Events", href: "/community-events" },
   { name: "Swift Fit Social", href: "/swift-fit-social" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/contact-us" },
 ];
 
 const marqueeItems = [
