@@ -57,8 +57,13 @@ export function ContactForm({
     };
 
     const inputClass =
-        "w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all";
-    const labelClass = "block text-sm font-semibold text-teal mb-2";
+        variant === "embedded"
+            ? "w-full px-4 py-3 rounded-lg border-2 border-white bg-transparent text-white placeholder-white/70 focus:border-white focus:ring-2 focus:ring-white/30 outline-none transition-all"
+            : "w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all";
+    const labelClass =
+        variant === "embedded"
+            ? "block text-sm font-semibold text-white mb-2"
+            : "block text-sm font-semibold text-teal mb-2";
 
     return (
         <m.div
