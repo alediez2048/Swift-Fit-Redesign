@@ -17,7 +17,12 @@ export default function ContactUsPage() {
             {/* Contact Form Section */}
             <section className="py-24 lg:py-32 bg-white relative z-10">
                 <div className="mx-auto max-w-4xl px-6 lg:px-8">
-                    <ContactForm variant="standalone" />
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-teal">
+                            Get In Touch With Us
+                        </h2>
+                    </div>
+                    <ContactForm variant="standalone" title="" />
                 </div>
             </section>
 
