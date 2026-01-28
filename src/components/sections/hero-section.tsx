@@ -213,7 +213,7 @@ function CompactHeroContent({
                     {heading}
                 </h1>
                 {subheading && (
-                    <p className="text-xl md:text-2xl font-medium max-w-3xl" style={{ color: '#FFFFFF' }}>
+                    <p className="text-xl md:text-2xl font-medium max-w-3xl mx-auto text-center" style={{ color: '#FFFFFF' }}>
                         {subheading}
                     </p>
                 )}
