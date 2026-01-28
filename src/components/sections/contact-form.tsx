@@ -78,8 +78,8 @@ export function ContactForm({
         >
             {title && (
                 <h3
-                    className={`text-2xl font-bold mb-6 ${variant === "embedded" ? "text-white" : "text-teal"
-                        }`}
+                    className="text-2xl font-bold mb-6"
+                    style={variant === "embedded" ? { color: '#FFFFFF' } : { color: '#00B4A6' }}
                 >
                     {title}
                 </h3>
@@ -89,8 +89,8 @@ export function ContactForm({
                 <div className="text-center py-8">
                     <div className="text-6xl mb-4">✓</div>
                     <h4
-                        className={`text-2xl font-bold mb-2 ${variant === "embedded" ? "text-white" : "text-teal"
-                            }`}
+                        className="text-2xl font-bold mb-2"
+                        style={variant === "embedded" ? { color: '#FFFFFF' } : { color: '#00B4A6' }}
                     >
                         Thank You!
                     </h4>
