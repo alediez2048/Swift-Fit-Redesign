@@ -527,7 +527,7 @@ export default function SwiftFitSocialPage() {
                                     className="flex-1 px-6 py-3 rounded-full bg-transparent border border-white text-white placeholder:text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                                     required
                                 />
-                                <Button type="submit" className="bg-teal text-white hover:bg-teal/90 rounded-full px-8 py-6 font-semibold shadow-lg">
+                                <Button type="submit" className="bg-white text-teal hover:bg-white/90 rounded-full px-8 py-6 font-semibold shadow-lg">
                                     Sign Up
                                 </Button>
                             </form>
