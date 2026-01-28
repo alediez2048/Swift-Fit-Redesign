@@ -14,7 +14,6 @@ const navigation = [
   { name: "Venue", href: "/venue-rental" },
   { name: "Events", href: "/community-events" },
   { name: "Swift Fit Social", href: "/swift-fit-social" },
-  { name: "Contact", href: "/contact-us" },
 ];
 
 export function Navbar() {
