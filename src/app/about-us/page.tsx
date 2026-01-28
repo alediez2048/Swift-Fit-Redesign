@@ -18,6 +18,18 @@ import christinaWilsonImg from "@/assets/images/Team/Christina Wilson.webp";
 import meganSoefjeImg from "@/assets/images/Team/Megan-Soefje.webp";
 import katieWilsonImg from "@/assets/images/Team/Katie-Wilson.webp";
 
+// Import instructor images
+import lizDavisImg from "@/assets/images/Team/Liz-Davis.webp";
+import colletteOuseleyMoynanImg from "@/assets/images/Team/Collette-Ouseley-Moynan.webp";
+import giocondaParkerImg from "@/assets/images/Team/Gioconda-Parker.webp";
+import coreyLawsonImg from "@/assets/images/Team/Corey-Lawson.webp";
+import danielleGertnerImg from "@/assets/images/Team/Danielle-Gertner.webp";
+import carterMilesImg from "@/assets/images/Team/Carter-Miles.webp";
+import gustavoPadronImg from "@/assets/images/Team/Gustavo-Padron.webp";
+import eileenArtigasImg from "@/assets/images/Team/Eileen-Artigas.webp";
+import ericaNixImg from "@/assets/images/Team/Erica-Nix.webp";
+import samJohnsonImg from "@/assets/images/Team/Sam-Johnson.webp";
+
 // Create a mapping of team member names to their images
 const getTeamMemberImage = (name: string) => {
     const imageMap: Record<string, any> = {
@@ -32,6 +44,23 @@ const getTeamMemberImage = (name: string) => {
         "Christina Wilson": christinaWilsonImg,
         "Megan Soefje": meganSoefjeImg,
         "Katie Wilson": katieWilsonImg,
+    };
+    return imageMap[name] || null;
+};
+
+// Create a mapping of instructor names to their images
+const getInstructorImage = (name: string) => {
+    const imageMap: Record<string, any> = {
+        "Liz Davis": lizDavisImg,
+        "Collette Ouseley-Moynan": colletteOuseleyMoynanImg,
+        "Gioconda Parker": giocondaParkerImg,
+        "Corey Lawson": coreyLawsonImg,
+        "Danielle Gertner": danielleGertnerImg,
+        "Carter Miles": carterMilesImg,
+        "Gustavo Padron": gustavoPadronImg,
+        "Eileen Artigas": eileenArtigasImg,
+        "Erica Nix": ericaNixImg,
+        "Sam Johnson": samJohnsonImg,
     };
     return imageMap[name] || null;
 };
@@ -148,22 +177,37 @@ export default function AboutUsPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {INSTRUCTORS.map((instructor) => (
-                            <div
-                                key={instructor.name}
-                                className="bg-surface rounded-xl p-6 text-center"
-                            >
-                                <div className="w-24 h-24 rounded-full bg-coral/10 mx-auto mb-4 flex items-center justify-center">
-                                    <span className="text-3xl">🧘</span>
+                        {INSTRUCTORS.map((instructor) => {
+                            const instructorImage = getInstructorImage(instructor.name);
+                            return (
+                                <div
+                                    key={instructor.name}
+                                    className="bg-surface rounded-xl p-6 text-center"
+                                >
+                                    <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 relative">
+                                        {instructorImage ? (
+                                            <Image
+                                                src={instructorImage}
+                                                alt={instructor.name}
+                                                fill
+                                                className="object-cover"
+                                                sizes="96px"
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-coral/10 flex items-center justify-center">
+                                                <span className="text-3xl">🧘</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <h3 className="text-lg font-bold text-teal mb-2">
+                                        {instructor.name}
+                                    </h3>
+                                    <div className="text-sm text-muted-foreground">
+                                        {instructor.specialties.join(", ")}
+                                    </div>
                                 </div>
-                                <h3 className="text-lg font-bold text-teal mb-2">
-                                    {instructor.name}
-                                </h3>
-                                <div className="text-sm text-muted-foreground">
-                                    {instructor.specialties.join(", ")}
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
