@@ -11,8 +11,8 @@ import { List, X } from "@phosphor-icons/react";
 const navigation = [
   { name: "About", href: "/about-us" },
   { name: "Services", href: "/corporate-wellness" },
-  { name: "Venue", href: "/venue-rental" },
   { name: "Events", href: "/community-events" },
+  { name: "Venue", href: "/venue-rental" },
   { name: "Blog", href: "/blog" },
   { name: "Swift Fit Social", href: "/swift-fit-social" },
 ];

@@ -8,8 +8,8 @@ import { Marquee } from "@/components/ui/marquee";
 const footerLinks = [
   { name: "About", href: "/about-us" },
   { name: "Services", href: "/corporate-wellness" },
-  { name: "Venue", href: "/venue-rental" },
   { name: "Events", href: "/community-events" },
+  { name: "Venue", href: "/venue-rental" },
   { name: "Blog", href: "/blog" },
   { name: "Swift Fit Social", href: "/swift-fit-social" },
 ];
