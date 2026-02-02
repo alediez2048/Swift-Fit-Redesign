@@ -44,10 +44,10 @@ export function HeroSection({
 
     return (
         <section
-            className={`relative ${heightClass} overflow-hidden border-x-[20px] border-white box-border`}
+            className={`relative ${heightClass} overflow-hidden border-x-[20px] border-white box-border rounded-3xl`}
         >
             {/* Background */}
-            <div className="absolute inset-0" aria-hidden="true">
+            <div className="absolute inset-0 rounded-3xl" aria-hidden="true">
                 {background === "video" ? (
                     <>
                         <video
@@ -58,7 +58,7 @@ export function HeroSection({
                             // @ts-expect-error - fetchPriority is valid but not in React types yet
                             fetchPriority={variant === "full" ? "high" : "low"}
                             poster={teamImage.src}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-cover rounded-3xl"
                         >
                             <source
                                 src={`${process.env.NODE_ENV === "production" ? "/Swift-Fit-Redesign" : ""
@@ -67,10 +67,10 @@ export function HeroSection({
                             />
                         </video>
                         {/* Gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30 rounded-3xl" />
                     </>
                 ) : (
-                    <div className={`absolute inset-0 ${background === "coral" ? "bg-coral" : "bg-teal"
+                    <div className={`absolute inset-0 rounded-3xl ${background === "coral" ? "bg-coral" : "bg-teal"
                         }`} />
                 )}
             </div>
