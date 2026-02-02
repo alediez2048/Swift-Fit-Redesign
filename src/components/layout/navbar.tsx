@@ -13,6 +13,7 @@ const navigation = [
   { name: "Services", href: "/corporate-wellness" },
   { name: "Venue", href: "/venue-rental" },
   { name: "Events", href: "/community-events" },
+  { name: "Blog", href: "/blog" },
   { name: "Swift Fit Social", href: "/swift-fit-social" },
 ];
 
