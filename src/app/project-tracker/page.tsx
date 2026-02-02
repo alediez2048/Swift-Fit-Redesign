@@ -14,13 +14,20 @@ export default function ProjectTrackerPage() {
                     <p className="text-sm text-gray-500">Track development progress and resources</p>
                 </div>
 
-                {/* Available Team - Absolute positioned to right or just centered below? 
-                    User asked to center the title. Keeping users on right might look unbalanced if title is centered.
-                    Let's put them absolute right for desktop, centered for mobile? 
-                    Or just keep them on the right. 
-                */}
-                <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-2">
-                    <div className="flex -space-x-2 mr-2">
+
+                {/* Reset Button & Team */}
+                <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-3">
+                    <button
+                        onClick={() => {
+                            localStorage.removeItem('swiftFitProjectTasks');
+                            window.location.reload();
+                        }}
+                        className="px-3 py-1.5 text-xs font-semibold text-gray-600 hover:text-teal border border-gray-300 hover:border-teal rounded-lg transition-colors"
+                        title="Reset to default tasks"
+                    >
+                        Reset Board
+                    </button>
+                    <div className="flex -space-x-2">
                         <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center text-sm font-bold border-2 border-white">JD</div>
                         <div className="w-10 h-10 rounded-full bg-coral text-white flex items-center justify-center text-sm font-bold border-2 border-white">AI</div>
                     </div>
