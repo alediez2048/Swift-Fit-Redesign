@@ -53,14 +53,25 @@ export function BoardCard({ task, onDelete, onClick }: BoardCardProps) {
             className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow group cursor-grab active:cursor-grabbing overflow-hidden relative"
         >
             {/* Delete Button (Visible on Hover) */}
+            {/* Delete Button (Visible on Hover) */}
             <button
                 onClick={(e) => {
-                    e.stopPropagation(); // Prevent drag start
+                    e.preventDefault();
+                    e.stopPropagation();
                     onDelete(task.id);
                 }}
-                className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded opacity-0 group-hover:opacity-100 transition-opacity z-50 cursor-pointer"
                 title="Delete ticket"
                 onPointerDown={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.stopPropagation();
+                        onDelete(task.id);
+                    }
+                }}
+            >
                 onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.stopPropagation();
