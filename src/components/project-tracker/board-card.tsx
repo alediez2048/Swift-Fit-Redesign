@@ -9,9 +9,10 @@ import { Paperclip, CalendarBlank, Link as LinkIcon, Trash } from "@phosphor-ico
 interface BoardCardProps {
     task: ProjectTask;
     onDelete: (id: string) => void;
+    onClick: (task: ProjectTask) => void;
 }
 
-export function BoardCard({ task, onDelete }: BoardCardProps) {
+export function BoardCard({ task, onDelete, onClick }: BoardCardProps) {
     const {
         attributes,
         listeners,
@@ -48,6 +49,7 @@ export function BoardCard({ task, onDelete }: BoardCardProps) {
             style={style}
             {...attributes}
             {...listeners}
+            onClick={() => onClick(task)}
             className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow group cursor-grab active:cursor-grabbing overflow-hidden relative"
         >
             {/* Delete Button (Visible on Hover) */}
@@ -59,6 +61,12 @@ export function BoardCard({ task, onDelete }: BoardCardProps) {
                 className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded opacity-0 group-hover:opacity-100 transition-opacity z-10"
                 title="Delete ticket"
                 onPointerDown={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.stopPropagation();
+                        onDelete(task.id);
+                    }
+                }}
             >
                 <Trash size={14} />
             </button>
@@ -66,11 +74,12 @@ export function BoardCard({ task, onDelete }: BoardCardProps) {
             {/* Cover Image */}
             {task.coverImage && (
                 <div className="relative h-32 w-full">
-                    <Image
+                    {/* Using basic img tag for external URLs to avoid configuring next.config domains for every user-inputted URL */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                         src={task.coverImage}
                         alt={task.title}
-                        fill
-                        className="object-cover"
+                        className="w-full h-full object-cover"
                     />
                 </div>
             )}
@@ -106,6 +115,7 @@ export function BoardCard({ task, onDelete }: BoardCardProps) {
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-1.5 text-xs text-teal hover:underline bg-teal/5 px-2 py-1 rounded w-fit"
                                 onPointerDown={(e) => e.stopPropagation()} // Prevent drag start when clicking link
+                                onClick={(e) => e.stopPropagation()}
                             >
                                 <LinkIcon size={12} weight="bold" />
                                 {link.label}

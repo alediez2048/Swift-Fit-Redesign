@@ -19,11 +19,13 @@ import { sortableKeyboardCoordinates, arrayMove } from "@dnd-kit/sortable";
 import { ProjectTask, ColumnId, columns as initialColumns, initialTasks } from "@/lib/data/project-tasks";
 import { BoardColumn } from "./board-column";
 import { BoardCard } from "./board-card";
+import { TaskEditModal } from "./task-edit-modal";
 
 export function BoardLayout() {
     // Initialize state with empty array first to avoid hydration mismatch
     const [tasks, setTasks] = useState<ProjectTask[]>([]);
     const [activeTask, setActiveTask] = useState<ProjectTask | null>(null);
+    const [editingTask, setEditingTask] = useState<ProjectTask | null>(null);
     const [mounted, setMounted] = useState(false);
 
     // Load tasks from localStorage or fall back to initialTasks on mount
@@ -92,6 +94,10 @@ export function BoardLayout() {
         if (confirm("Are you sure you want to delete this ticket?")) {
             setTasks((prev) => prev.filter((task) => task.id !== id));
         }
+    }
+
+    function handleUpdateTask(updatedTask: ProjectTask) {
+        setTasks((prev) => prev.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
     }
 
     function onDragStart(event: DragStartEvent) {
@@ -176,6 +182,7 @@ export function BoardLayout() {
                         tasks={tasksByColumn[col.id]}
                         onAddTask={handleAddTask}
                         onDeleteTask={handleDeleteTask}
+                        onEditTask={setEditingTask}
                     />
                 ))}
             </div>
@@ -185,11 +192,22 @@ export function BoardLayout() {
                     {activeTask && (
                         <BoardCard
                             task={activeTask}
-                            onDelete={() => { }} // No delete in overlay
+                            onDelete={() => { }}
+                            onClick={() => { }}
                         />
                     )}
                 </DragOverlay>,
                 document.body
+            )}
+
+            {/* Edit Modal */}
+            {editingTask && (
+                <TaskEditModal
+                    task={editingTask}
+                    isOpen={!!editingTask}
+                    onClose={() => setEditingTask(null)}
+                    onSave={handleUpdateTask}
+                />
             )}
         </DndContext>
     );
