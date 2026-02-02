@@ -46,18 +46,18 @@ export function BoardColumn({ id, title, tasks, onAddTask, onDeleteTask, onEditT
     return (
         <div
             ref={setNodeRef}
-            className="flex-shrink-0 w-[272px] flex flex-col max-h-full"
+            className="flex-shrink-0 w-[320px] flex flex-col max-h-full"
         >
             {/* Header */}
-            <div className="flex items-center justify-between px-3 py-2">
-                <h3 className="text-sm font-semibold text-gray-700">{title}</h3>
+            <div className="flex items-center justify-between px-3 py-3">
+                <h3 className="text-base font-bold text-gray-700">{title}</h3>
                 <span className="text-xs text-gray-500 font-medium bg-gray-200 px-2 py-0.5 rounded-full">
                     {tasks.length}
                 </span>
             </div>
 
             {/* Tasks Container */}
-            <div className="flex-1 bg-gray-100/80 rounded-xl p-2 flex flex-col gap-2 overflow-y-auto min-h-[100px]">
+            <div className="flex-1 bg-gray-100/90 rounded-xl p-3 flex flex-col gap-3 overflow-y-auto min-h-[100px]">
                 <SortableContext items={taskIds}>
                     {tasks.map((task) => (
                         <BoardCard

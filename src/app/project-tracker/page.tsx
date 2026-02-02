@@ -7,16 +7,22 @@ export default function ProjectTrackerPage() {
     return (
         <main className="h-screen flex flex-col bg-slate-50 overflow-hidden">
             {/* Simple Header instead of full Hero to save space */}
-            <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm z-10">
-                <div>
-                    <h1 className="text-xl font-bold text-gray-800">Project Tracker</h1>
-                    <p className="text-xs text-gray-500">Track development progress and resources</p>
+            {/* Simple Header instead of full Hero to save space */}
+            <div className="bg-white border-b border-gray-200 px-6 py-8 flex flex-col items-center justify-center shadow-sm z-10 relative">
+                <div className="text-center">
+                    <h1 className="text-3xl font-bold text-gray-800 mb-2">Project Tracker</h1>
+                    <p className="text-sm text-gray-500">Track development progress and resources</p>
                 </div>
-                <div className="flex items-center gap-2">
-                    {/* Could add filters or search here later */}
+
+                {/* Available Team - Absolute positioned to right or just centered below? 
+                    User asked to center the title. Keeping users on right might look unbalanced if title is centered.
+                    Let's put them absolute right for desktop, centered for mobile? 
+                    Or just keep them on the right. 
+                */}
+                <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-2">
                     <div className="flex -space-x-2 mr-2">
-                        <div className="w-8 h-8 rounded-full bg-teal text-white flex items-center justify-center text-xs font-bold border-2 border-white">JD</div>
-                        <div className="w-8 h-8 rounded-full bg-coral text-white flex items-center justify-center text-xs font-bold border-2 border-white">AI</div>
+                        <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center text-sm font-bold border-2 border-white">JD</div>
+                        <div className="w-10 h-10 rounded-full bg-coral text-white flex items-center justify-center text-sm font-bold border-2 border-white">AI</div>
                     </div>
                 </div>
             </div>

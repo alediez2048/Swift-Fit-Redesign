@@ -173,7 +173,7 @@ export function BoardLayout() {
             onDragOver={onDragOver}
             onDragEnd={onDragEnd}
         >
-            <div className="flex h-full overflow-x-auto gap-4 p-6 items-start">
+            <div className="flex h-full overflow-x-auto gap-8 p-10 items-start">
                 {columns.map((col) => (
                     <BoardColumn
                         key={col.id}
