@@ -91,7 +91,7 @@ export function BoardLayout() {
     }
 
     function handleDeleteTask(id: string) {
-        if (confirm("Are you sure you want to delete this ticket?")) {
+        if (typeof window !== 'undefined' && window.confirm("Are you sure you want to delete this ticket?")) {
             setTasks((prev) => prev.filter((task) => task.id !== id));
         }
     }
@@ -187,7 +187,7 @@ export function BoardLayout() {
                 ))}
             </div>
 
-            {createPortal(
+            {typeof document !== 'undefined' && createPortal(
                 <DragOverlay>
                     {activeTask && (
                         <BoardCard
