@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import {
     DndContext,
@@ -21,8 +21,33 @@ import { BoardColumn } from "./board-column";
 import { BoardCard } from "./board-card";
 
 export function BoardLayout() {
-    const [tasks, setTasks] = useState<ProjectTask[]>(initialTasks);
+    // Initialize state with empty array first to avoid hydration mismatch
+    const [tasks, setTasks] = useState<ProjectTask[]>([]);
     const [activeTask, setActiveTask] = useState<ProjectTask | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    // Load tasks from localStorage or fall back to initialTasks on mount
+    useEffect(() => {
+        setMounted(true);
+        const savedTasks = localStorage.getItem("swiftFitProjectTasks");
+        if (savedTasks) {
+            try {
+                setTasks(JSON.parse(savedTasks));
+            } catch (e) {
+                console.error("Failed to parse tasks from localStorage", e);
+                setTasks(initialTasks);
+            }
+        } else {
+            setTasks(initialTasks);
+        }
+    }, []);
+
+    // Save tasks to localStorage whenever they change
+    useEffect(() => {
+        if (mounted) {
+            localStorage.setItem("swiftFitProjectTasks", JSON.stringify(tasks));
+        }
+    }, [tasks, mounted]);
 
     const columns = initialColumns;
 
@@ -41,12 +66,27 @@ export function BoardLayout() {
             resources: []
         };
 
-        tasks.forEach((task) => {
-            acc[task.columnId].push(task);
-        });
+        // Ensure tasks is an array before iterating
+        if (Array.isArray(tasks)) {
+            tasks.forEach((task) => {
+                if (acc[task.columnId]) {
+                    acc[task.columnId].push(task);
+                }
+            });
+        }
 
         return acc;
     }, [tasks]);
+
+    function handleAddTask(columnId: ColumnId, title: string) {
+        const newTask: ProjectTask = {
+            id: `task-${Date.now()}`,
+            columnId,
+            title,
+            date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+        };
+        setTasks((prev) => [...prev, newTask]);
+    }
 
     function onDragStart(event: DragStartEvent) {
         if (event.active.data.current?.type === "Task") {
@@ -100,7 +140,7 @@ export function BoardLayout() {
                         ...newTasks[activeIndex],
                         columnId: overColumnId
                     };
-                    return arrayMove(newTasks, activeIndex, 0); // Move to top of new column? Or maintain index? simple append is easier.
+                    return arrayMove(newTasks, activeIndex, 0);
                 }
                 return tasks;
             });
@@ -110,10 +150,6 @@ export function BoardLayout() {
     function onDragEnd(event: DragEndEvent) {
         setActiveTask(null);
     }
-
-    // Client-side only rendering for portal
-    const [mounted, setMounted] = useState(false);
-    useMemo(() => setMounted(true), []);
 
     if (!mounted) return null;
 
@@ -132,6 +168,7 @@ export function BoardLayout() {
                         id={col.id}
                         title={col.title}
                         tasks={tasksByColumn[col.id]}
+                        onAddTask={handleAddTask}
                     />
                 ))}
             </div>

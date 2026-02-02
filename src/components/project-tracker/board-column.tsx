@@ -1,19 +1,22 @@
 "use client";
 
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { ProjectTask, ColumnId } from "@/lib/data/project-tasks";
 import { BoardCard } from "./board-card";
+import { Plus, X } from "@phosphor-icons/react";
 
 interface BoardColumnProps {
     id: ColumnId;
     title: string;
     tasks: ProjectTask[];
+    onAddTask: (columnId: ColumnId, title: string) => void;
 }
 
-export function BoardColumn({ id, title, tasks }: BoardColumnProps) {
+export function BoardColumn({ id, title, tasks, onAddTask }: BoardColumnProps) {
     const taskIds = useMemo(() => tasks.map((t) => t.id), [tasks]);
+    const [isAdding, setIsAdding] = useState(false);
+    const [newTaskTitle, setNewTaskTitle] = useState("");
 
     const { setNodeRef } = useSortable({
         id: id,
@@ -22,6 +25,21 @@ export function BoardColumn({ id, title, tasks }: BoardColumnProps) {
             columnId: id,
         },
     });
+
+    const handleAddTask = () => {
+        if (!newTaskTitle.trim()) return;
+        onAddTask(id, newTaskTitle);
+        setNewTaskTitle("");
+        setIsAdding(false);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "Enter") {
+            handleAddTask();
+        } else if (e.key === "Escape") {
+            setIsAdding(false);
+        }
+    };
 
     return (
         <div
@@ -43,6 +61,43 @@ export function BoardColumn({ id, title, tasks }: BoardColumnProps) {
                         <BoardCard key={task.id} task={task} />
                     ))}
                 </SortableContext>
+
+                {/* Add Task Input/Button */}
+                {isAdding ? (
+                    <div className="bg-white rounded-lg shadow-sm border border-teal p-2">
+                        <textarea
+                            autoFocus
+                            placeholder="Enter a title for this card..."
+                            className="w-full text-sm resize-none outline-none mb-2 placeholder:text-gray-400"
+                            rows={3}
+                            value={newTaskTitle}
+                            onChange={(e) => setNewTaskTitle(e.target.value)}
+                            onKeyDown={handleKeyDown}
+                        />
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={handleAddTask}
+                                className="bg-teal text-white text-xs font-semibold px-3 py-1.5 rounded hover:bg-teal/90"
+                            >
+                                Add Card
+                            </button>
+                            <button
+                                onClick={() => setIsAdding(false)}
+                                className="text-gray-500 hover:text-gray-700"
+                            >
+                                <X size={16} />
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <button
+                        onClick={() => setIsAdding(true)}
+                        className="flex items-center gap-2 text-gray-500 hover:bg-gray-200 hover:text-gray-800 p-2 rounded-lg text-sm text-left transition-colors"
+                    >
+                        <Plus size={16} />
+                        <span>Add a card</span>
+                    </button>
+                )}
             </div>
         </div>
     );
