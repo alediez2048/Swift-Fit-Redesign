@@ -11,9 +11,10 @@ interface BoardColumnProps {
     title: string;
     tasks: ProjectTask[];
     onAddTask: (columnId: ColumnId, title: string) => void;
+    onDeleteTask: (id: string) => void;
 }
 
-export function BoardColumn({ id, title, tasks, onAddTask }: BoardColumnProps) {
+export function BoardColumn({ id, title, tasks, onAddTask, onDeleteTask }: BoardColumnProps) {
     const taskIds = useMemo(() => tasks.map((t) => t.id), [tasks]);
     const [isAdding, setIsAdding] = useState(false);
     const [newTaskTitle, setNewTaskTitle] = useState("");
@@ -58,7 +59,11 @@ export function BoardColumn({ id, title, tasks, onAddTask }: BoardColumnProps) {
             <div className="flex-1 bg-gray-100/80 rounded-xl p-2 flex flex-col gap-2 overflow-y-auto min-h-[100px]">
                 <SortableContext items={taskIds}>
                     {tasks.map((task) => (
-                        <BoardCard key={task.id} task={task} />
+                        <BoardCard
+                            key={task.id}
+                            task={task}
+                            onDelete={onDeleteTask}
+                        />
                     ))}
                 </SortableContext>
 

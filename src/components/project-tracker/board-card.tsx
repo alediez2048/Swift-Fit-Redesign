@@ -4,13 +4,14 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { ProjectTask } from "@/lib/data/project-tasks";
 import Image from "next/image";
-import { Paperclip, CalendarBlank, Link as LinkIcon } from "@phosphor-icons/react";
+import { Paperclip, CalendarBlank, Link as LinkIcon, Trash } from "@phosphor-icons/react";
 
 interface BoardCardProps {
     task: ProjectTask;
+    onDelete: (id: string) => void;
 }
 
-export function BoardCard({ task }: BoardCardProps) {
+export function BoardCard({ task, onDelete }: BoardCardProps) {
     const {
         attributes,
         listeners,
@@ -47,8 +48,21 @@ export function BoardCard({ task }: BoardCardProps) {
             style={style}
             {...attributes}
             {...listeners}
-            className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow group cursor-grab active:cursor-grabbing overflow-hidden"
+            className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow group cursor-grab active:cursor-grabbing overflow-hidden relative"
         >
+            {/* Delete Button (Visible on Hover) */}
+            <button
+                onClick={(e) => {
+                    e.stopPropagation(); // Prevent drag start
+                    onDelete(task.id);
+                }}
+                className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                title="Delete ticket"
+                onPointerDown={(e) => e.stopPropagation()}
+            >
+                <Trash size={14} />
+            </button>
+
             {/* Cover Image */}
             {task.coverImage && (
                 <div className="relative h-32 w-full">
@@ -64,7 +78,7 @@ export function BoardCard({ task }: BoardCardProps) {
             <div className="p-3">
                 {/* Labels */}
                 {task.labels && task.labels.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mb-2">
+                    <div className="flex flex-wrap gap-1 mb-2 pr-6">
                         {task.labels.map((label, index) => (
                             <span
                                 key={index}
@@ -77,15 +91,9 @@ export function BoardCard({ task }: BoardCardProps) {
                 )}
 
                 {/* Title */}
-                <h4 className="text-sm font-medium text-gray-800 mb-1 leading-snug">
+                <h4 className="text-sm font-medium text-gray-800 mb-1 leading-snug pr-4">
                     {task.title}
                 </h4>
-
-                {/* Description Preview (optional) */}
-                {/* {task.description && (
-                     <p className="text-xs text-gray-500 line-clamp-2 mb-2">{task.description}</p>
-                 )} */}
-
 
                 {/* Links */}
                 {task.links && task.links.length > 0 && (

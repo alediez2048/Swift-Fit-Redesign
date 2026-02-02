@@ -88,6 +88,12 @@ export function BoardLayout() {
         setTasks((prev) => [...prev, newTask]);
     }
 
+    function handleDeleteTask(id: string) {
+        if (confirm("Are you sure you want to delete this ticket?")) {
+            setTasks((prev) => prev.filter((task) => task.id !== id));
+        }
+    }
+
     function onDragStart(event: DragStartEvent) {
         if (event.active.data.current?.type === "Task") {
             setActiveTask(event.active.data.current.task);
@@ -169,13 +175,19 @@ export function BoardLayout() {
                         title={col.title}
                         tasks={tasksByColumn[col.id]}
                         onAddTask={handleAddTask}
+                        onDeleteTask={handleDeleteTask}
                     />
                 ))}
             </div>
 
             {createPortal(
                 <DragOverlay>
-                    {activeTask && <BoardCard task={activeTask} />}
+                    {activeTask && (
+                        <BoardCard
+                            task={activeTask}
+                            onDelete={() => { }} // No delete in overlay
+                        />
+                    )}
                 </DragOverlay>,
                 document.body
             )}
