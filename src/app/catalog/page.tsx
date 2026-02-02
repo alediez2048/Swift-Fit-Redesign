@@ -7,6 +7,7 @@ export default function CatalogPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="teal"
                 heading="thanks for running INTO US AT VISIT AUSTIN!"
                 subheading="Explore our 2025 wellness programming catalog"
             />

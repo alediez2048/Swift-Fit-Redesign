@@ -71,6 +71,7 @@ export default function AboutUsPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="teal"
                 heading="The Swift Team"
                 subheading="Meet the passionate people behind Austin's premier wellness events"
             />

@@ -25,6 +25,7 @@ const staggerContainer = {
 
 interface HeroSectionProps {
     variant?: "full" | "compact";
+    background?: "video" | "coral" | "teal";
     heading: string;
     subheading?: string;
     showRating?: boolean;
@@ -33,6 +34,7 @@ interface HeroSectionProps {
 
 export function HeroSection({
     variant = "compact",
+    background = "video",
     heading,
     subheading,
     showRating = false,
@@ -44,26 +46,33 @@ export function HeroSection({
         <section
             className={`relative ${heightClass} overflow-hidden border-x-[20px] border-white box-border`}
         >
-            {/* Video Background */}
+            {/* Background */}
             <div className="absolute inset-0" aria-hidden="true">
-                <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    // @ts-expect-error - fetchPriority is valid but not in React types yet
-                    fetchPriority={variant === "full" ? "high" : "low"}
-                    poster={teamImage.src}
-                    className="absolute inset-0 w-full h-full object-cover"
-                >
-                    <source
-                        src={`${process.env.NODE_ENV === "production" ? "/Swift-Fit-Redesign" : ""
-                            }/assets/video/hero-video.mp4`}
-                        type="video/mp4"
-                    />
-                </video>
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30" />
+                {background === "video" ? (
+                    <>
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            // @ts-expect-error - fetchPriority is valid but not in React types yet
+                            fetchPriority={variant === "full" ? "high" : "low"}
+                            poster={teamImage.src}
+                            className="absolute inset-0 w-full h-full object-cover"
+                        >
+                            <source
+                                src={`${process.env.NODE_ENV === "production" ? "/Swift-Fit-Redesign" : ""
+                                    }/assets/video/hero-video.mp4`}
+                                type="video/mp4"
+                            />
+                        </video>
+                        {/* Gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30" />
+                    </>
+                ) : (
+                    <div className={`absolute inset-0 ${background === "coral" ? "bg-coral" : "bg-teal"
+                        }`} />
+                )}
             </div>
 
             {variant === "full" ? (

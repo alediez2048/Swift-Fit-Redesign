@@ -84,6 +84,7 @@ export default function CorporateEventsPackagesPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="coral"
                 heading="Corporate Packages"
                 subheading="Curated wellness experiences tailored for your team"
             />

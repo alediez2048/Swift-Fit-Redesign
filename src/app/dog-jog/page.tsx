@@ -66,6 +66,7 @@ export default function DogJogPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="coral"
                 heading="Wags & Wellness Dog Jog"
                 subheading="Saturday, September 27 | 9:00 AM | Republic Park"
             />

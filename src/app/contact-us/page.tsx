@@ -10,6 +10,7 @@ export default function ContactUsPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="teal"
                 heading="Contact Us"
                 subheading="Let's create something amazing together"
             />

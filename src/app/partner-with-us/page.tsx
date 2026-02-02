@@ -53,6 +53,7 @@ export default function PartnerWithUsPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="teal"
                 heading="Sponsorship Opportunities"
                 subheading="We Connect Brands with Austin's Wellness Community"
             />

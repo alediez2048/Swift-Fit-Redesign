@@ -59,6 +59,7 @@ export default function VenueRentalPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="coral"
                 heading="Venue Rentals"
                 subheading="Two Venue Rentals Located in the Heart of Downtown Austin"
             />

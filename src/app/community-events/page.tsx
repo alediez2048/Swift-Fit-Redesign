@@ -31,6 +31,7 @@ export default function CommunityEventsPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="teal"
                 heading="Community Events"
                 subheading="Uniting the Community Through Wellness"
             />

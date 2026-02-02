@@ -96,6 +96,7 @@ export default function CorporateWellnessPage() {
             {/* Hero Section */}
             <HeroSection
                 variant="compact"
+                background="coral"
                 heading="Corporate Events"
                 subheading="Bring Wellness To Your Workplace!"
             />
