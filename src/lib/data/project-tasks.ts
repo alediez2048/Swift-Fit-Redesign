@@ -18,88 +18,90 @@ export interface ProjectTask {
 }
 
 export const initialTasks: ProjectTask[] = [
-    // Done Column
+    // Done Column - Completed Phases
     {
-        id: "hero-system",
+        id: "phase-4-1",
         columnId: "done",
-        title: "Hero System Update",
-        description: "Implemented solid color and video variants for hero sections to support different page themes.",
-        labels: [{ text: "Feature", color: "bg-green-100 text-green-700" }, { text: "UI", color: "bg-purple-100 text-purple-700" }],
-        date: "Feb 1",
-        coverImage: "/assets/images/blog/dog-jog-recap.jpg", // Using an existing image as placeholder/example
+        title: "Interactive Prototyping & Design Verification",
+        description: "High-fidelity Next.js prototype with animations, responsive behaviors, and content strategy validation. Created 'Gold Master' reference site.",
+        labels: [
+            { text: "Phase 4.1", color: "bg-teal-100 text-teal-700" },
+            { text: "Design", color: "bg-pink-100 text-pink-700" }
+        ],
+        date: "Completed",
+        coverImage: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&auto=format&fit=crop",
         links: [
-            { label: "Venue Page (Coral)", url: "/venue-rental" },
-            { label: "About Page (Teal)", url: "/about-us" }
-        ]
-    },
-    {
-        id: "blog-system",
-        columnId: "done",
-        title: "Blog System Implementation",
-        description: "Full blog system with listing page, individual posts, and CMS-like data structure.",
-        labels: [{ text: "Feature", color: "bg-green-100 text-green-700" }],
-        date: "Feb 2",
-        coverImage: "/assets/images/blog/corporate-wellness.jpg",
-        links: [
-            { label: "View Blog", url: "/blog" }
-        ]
-    },
-    {
-        id: "nav-refactor",
-        columnId: "done",
-        title: "Navigation Refactor",
-        description: "Reordered navigation items (Events before Venue) and updated mobile menu.",
-        labels: [{ text: "UX", color: "bg-blue-100 text-blue-700" }],
-        date: "Feb 2",
-    },
-    {
-        id: "assets",
-        columnId: "done",
-        title: "Asset Management",
-        description: "Added team and instructor headshots.",
-        labels: [{ text: "Content", color: "bg-yellow-100 text-yellow-700" }],
-        date: "Feb 1"
-    },
-    {
-        id: "rounded-corners",
-        columnId: "done",
-        title: "UI Refinements",
-        description: "Added rounded corners to all hero sections and fixed contact form titles.",
-        labels: [{ text: "UI", color: "bg-purple-100 text-purple-700" }],
-        date: "Feb 2"
-    },
-
-    // In Progress
-    {
-        id: "project-tracker",
-        columnId: "inprogress",
-        title: "Project Tracker Board",
-        description: "Building a Kanban board to track project status and resources.",
-        labels: [{ text: "Feature", color: "bg-green-100 text-green-700" }],
+            { label: "Live Prototype", url: "https://alediez2048.github.io/Swift-Fit-Redesign/" }
+        ],
         members: ["JD", "AI"]
     },
+    {
+        id: "homepage-modules",
+        columnId: "done",
+        title: "HubSpot Homepage Modules",
+        description: "Developed 9 custom HubSpot modules for homepage: Hero, Marquee, Welcome, Services Grid, Partner Logos, Logic Steps, Testimonials, FAQ, CTA.",
+        labels: [
+            { text: "Phase 4.2", color: "bg-teal-100 text-teal-700" },
+            { text: "HubSpot", color: "bg-orange-100 text-orange-700" }
+        ],
+        date: "Completed",
+        members: ["JD"]
+    },
 
-    // To Do
+    // In Progress - Active Development
     {
-        id: "search",
-        columnId: "todo",
-        title: "Search Functionality",
-        description: "Add search capabilities to blog and event listings.",
-        labels: [{ text: "Feature", color: "bg-green-100 text-green-700" }]
+        id: "phase-4-2-inner",
+        columnId: "inprogress",
+        title: "HubSpot Inner Page Modules",
+        description: "Developing custom modules for service pages, about, contact. Ensuring design parity with Next.js prototype.",
+        labels: [
+            { text: "Phase 4.2", color: "bg-teal-100 text-teal-700" },
+            { text: "HubSpot", color: "bg-orange-100 text-orange-700" }
+        ],
+        members: ["JD"]
     },
     {
-        id: "filtering",
+        id: "phase-4-3",
+        columnId: "inprogress",
+        title: "CMS Integration & Page Assembly",
+        description: "Assembling service pages, configuring navigation, blog templates, and form styling using the module library.",
+        labels: [
+            { text: "Phase 4.3", color: "bg-teal-100 text-teal-700" },
+            { text: "Content", color: "bg-yellow-100 text-yellow-700" }
+        ],
+        members: ["JD"]
+    },
+
+    // To Do - Upcoming Phases
+    {
+        id: "phase-4-4",
         columnId: "todo",
-        title: "Category Filtering",
-        description: "Implement dynamic filtering for blog posts by category.",
-        labels: [{ text: "Feature", color: "bg-green-100 text-green-700" }]
+        title: "Technical Integration, SEO & Analytics",
+        description: "GA4 setup, SEO configuration (meta tags, sitemaps), performance optimization (WebP, lazy loading), and domain/SSL setup.",
+        labels: [
+            { text: "Phase 4.4", color: "bg-teal-100 text-teal-700" },
+            { text: "Technical", color: "bg-blue-100 text-blue-700" }
+        ]
     },
     {
-        id: "dark-mode",
+        id: "phase-4-5",
         columnId: "todo",
-        title: "Dark Mode",
-        description: "Explore dark mode toggle for better accessibility.",
-        labels: [{ text: "UI", color: "bg-purple-100 text-purple-700" }]
+        title: "Quality Assurance & Launch",
+        description: "Visual regression testing, functional testing, cross-browser compatibility, mobile responsiveness, and launch support.",
+        labels: [
+            { text: "Phase 4.5", color: "bg-teal-100 text-teal-700" },
+            { text: "QA", color: "bg-red-100 text-red-700" }
+        ]
+    },
+    {
+        id: "phase-4-6",
+        columnId: "todo",
+        title: "Documentation & Training",
+        description: "Create editor guide, content management instructions, and conduct handoff/training session for client team.",
+        labels: [
+            { text: "Phase 4.6", color: "bg-teal-100 text-teal-700" },
+            { text: "Documentation", color: "bg-purple-100 text-purple-700" }
+        ]
     },
 
     // Resources
@@ -107,16 +109,24 @@ export const initialTasks: ProjectTask[] = [
         id: "github",
         columnId: "resources",
         title: "GitHub Repository",
-        description: "Main source code repository.",
+        description: "Next.js prototype source code repository.",
         labels: [{ text: "Code", color: "bg-gray-100 text-gray-700" }],
         links: [{ label: "Repo", url: "https://github.com/alediez2048/Swift-Fit-Redesign" }]
     },
     {
-        id: "design-system",
+        id: "hubspot-portal",
         columnId: "resources",
-        title: "Design System",
-        description: "Core brand colors and typography.",
-        labels: [{ text: "Design", color: "bg-pink-100 text-pink-700" }],
+        title: "HubSpot Portal",
+        description: "Swift Fit Events CMS portal for theme and module development.",
+        labels: [{ text: "HubSpot", color: "bg-orange-100 text-orange-700" }],
+        links: [{ label: "Portal", url: "https://app-na2.hubspot.com/design-manager/39804652" }]
+    },
+    {
+        id: "brand-vault",
+        columnId: "resources",
+        title: "Swift Fit Brand Vault",
+        description: "Brand assets, colors (Swift Orange/Navy), typography, and approved imagery.",
+        labels: [{ text: "Design", color: "bg-pink-100 text-pink-700" }]
     }
 ];
 
