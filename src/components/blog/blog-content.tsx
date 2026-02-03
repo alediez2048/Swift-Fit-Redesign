@@ -45,7 +45,7 @@ export function BlogContent({ content }: BlogContentProps) {
 }
 
 function processContent(content: string) {
-    const elements: JSX.Element[] = [];
+    const elements: React.JSX.Element[] = [];
     const lines = content.split("\n").filter((line) => line.trim());
 
     let currentList: string[] = [];
