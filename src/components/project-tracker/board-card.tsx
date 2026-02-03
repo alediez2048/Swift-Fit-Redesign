@@ -72,13 +72,6 @@ export function BoardCard({ task, onDelete, onClick }: BoardCardProps) {
                     }
                 }}
             >
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.stopPropagation();
-                        onDelete(task.id);
-                    }
-                }}
-            >
                 <Trash size={14} />
             </button>
 
