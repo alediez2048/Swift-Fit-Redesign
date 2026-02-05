@@ -4,6 +4,7 @@ import Image from "next/image";
 import { m } from "framer-motion";
 import { CalendarBlank, User, Clock } from "@phosphor-icons/react/dist/ssr";
 import { BlogPost } from "@/lib/data/blog-posts";
+import { getAssetPath } from "@/lib/utils/path-utils";
 
 interface BlogHeaderProps {
     post: BlogPost;
@@ -30,7 +31,7 @@ export function BlogHeader({ post }: BlogHeaderProps) {
             {/* Featured Image */}
             <div className="relative aspect-[21/9] overflow-hidden">
                 <Image
-                    src={post.featuredImage}
+                    src={getAssetPath(post.featuredImage)}
                     alt={post.title}
                     fill
                     className="object-cover"

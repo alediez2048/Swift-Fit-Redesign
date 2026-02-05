@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BlogPost } from "@/lib/data/blog-posts";
 import { CalendarBlank, User, Clock } from "@phosphor-icons/react/dist/ssr";
+import { getAssetPath } from "@/lib/utils/path-utils";
 
 interface BlogCardProps {
     post: BlogPost;
@@ -37,7 +38,7 @@ export function BlogCard({ post }: BlogCardProps) {
                 {/* Featured Image */}
                 <div className="relative aspect-[16/9] overflow-hidden">
                     <Image
-                        src={post.featuredImage}
+                        src={getAssetPath(post.featuredImage)}
                         alt={post.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"

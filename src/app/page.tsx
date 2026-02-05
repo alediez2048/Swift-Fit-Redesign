@@ -6,6 +6,7 @@ import { m, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
+import { getAssetPath } from "@/lib/utils/path-utils";
 
 // Partner logos
 import logoBumble from "@/assets/images/partners/bumble.webp";
@@ -382,7 +383,7 @@ export default function Home() {
             poster={teamImage.src}
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src={`${process.env.NODE_ENV === 'production' ? '/Swift-Fit-Redesign' : ''}/assets/video/hero-video.mp4`} type="video/mp4" />
+            <source src={getAssetPath("/assets/video/hero-video.mp4")} type="video/mp4" />
           </video>
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-teal/30 via-teal/20 to-teal/30" />

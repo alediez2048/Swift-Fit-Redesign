@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   metadataBase: new URL("https://www.swiftfitevents.com"),
-  manifest: "/manifest.json",
+  manifest: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/manifest.json`,
 };
 
 export default function RootLayout({
@@ -48,6 +48,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
@@ -55,7 +57,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/_next/static/media/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp"
+          href={`${basePath}/_next/static/media/Swift_Fit_Picture_Day_92_0e0ecbeeb9.webp`}
           type="image/webp"
         />
       </head>
