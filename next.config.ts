@@ -6,7 +6,8 @@ const repoName = "Swift-Fit-Redesign";
 const nextConfig: NextConfig = {
   output: "export",
   basePath: isProd ? `/${repoName}` : "",
-  assetPrefix: isProd ? `/${repoName}` : "",
+  assetPrefix: isProd ? `/${repoName}/` : "",
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },

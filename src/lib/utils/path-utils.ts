@@ -1,5 +1,12 @@
 export function getAssetPath(path: string): string {
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    // Determine base path from environment variable or default to repo name in production
+    let basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+    // Fallback for GitHub Pages production environment if env var is missing
+    if (!basePath && (typeof window !== "undefined" && (window.location.hostname.includes("github.io") || window.location.pathname.includes("Swift-Fit-Redesign")))) {
+        basePath = "/Swift-Fit-Redesign";
+    }
+
     if (!path) return "";
 
     // If it's already a full URL or already prefixed, return as is
